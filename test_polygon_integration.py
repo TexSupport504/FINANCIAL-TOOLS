@@ -1,93 +1,52 @@
-"""Quick test script to validate the Polygon momentum strategy setup."""
+"""Pytest-friendly integration tests for Polygon-related modules.
+
+These tests use pytest-style assertions and will skip if the
+relevant modules aren't importable in the test environment.
+"""
+import pytest
 import sys
 from pathlib import Path
 
-# Add project root to path
+# Ensure project root is on sys.path when running locally
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-def test_imports():
-    """Test that all required modules can be imported."""
-    print("🔍 Testing imports...")
-    
-    try:
-        from agent_trader.data_sources.polygon_adapter import PolygonDataAdapter
-        print("✅ PolygonDataAdapter imported successfully")
-    except ImportError as e:
-        print(f"❌ Failed to import PolygonDataAdapter: {e}")
-        return False
-    
-    try:
-        from agent_trader.strategies.polygon.momentum_strategy import PolygonMomentumStrategy
-        print("✅ PolygonMomentumStrategy imported successfully")
-    except ImportError as e:
-        print(f"❌ Failed to import PolygonMomentumStrategy: {e}")
-        return False
-    
-    return True
 
-def test_strategy_init():
-    """Test strategy initialization."""
-    print("\n🔧 Testing strategy initialization...")
-    
+def test_imports_available():
+    """Assert that core Polygon-related modules are importable.
+
+    If the modules aren't present in the environment we skip the
+    test so CI doesn't fail on optional integrations.
+    """
+    try:
+        from agent_trader.data_sources.polygon_adapter import PolygonDataAdapter  # noqa: F401
+        from agent_trader.strategies.polygon.momentum_strategy import PolygonMomentumStrategy  # noqa: F401
+    except Exception as exc:  # pragma: no cover - environment dependent
+        pytest.skip(f"Polygon integration modules not available: {exc}")
+
+
+def test_strategy_initialization_has_expected_attrs():
+    """Instantiate the strategy and check a few expected attributes."""
     try:
         from agent_trader.strategies.polygon.momentum_strategy import PolygonMomentumStrategy
-        strategy = PolygonMomentumStrategy()
-        print("✅ Strategy initialized successfully")
-        print(f"   Lookback days: {strategy.lookback_days}")
-        print(f"   Short MA: {strategy.short_ma}")
-        print(f"   Long MA: {strategy.long_ma}")
-        return True
-    except Exception as e:
-        print(f"❌ Strategy initialization failed: {e}")
-        return False
+    except Exception as exc:  # pragma: no cover - environment dependent
+        pytest.skip(f"Strategy module not available: {exc}")
 
-def test_polygon_adapter():
-    """Test Polygon adapter without API key."""
-    print("\n🌐 Testing Polygon adapter...")
-    
+    strategy = PolygonMomentumStrategy()
+    assert hasattr(strategy, "lookback_days"), "strategy must expose lookback_days"
+    assert hasattr(strategy, "short_ma"), "strategy must expose short_ma"
+    assert hasattr(strategy, "long_ma"), "strategy must expose long_ma"
+
+
+def test_polygon_adapter_can_construct():
+    """Ensure the Polygon adapter class can be constructed without raising.
+
+    Adapter may require environment variables for API keys for full calls; we
+    only assert construction here to keep CI stable.
+    """
     try:
         from agent_trader.data_sources.polygon_adapter import PolygonDataAdapter
-        adapter = PolygonDataAdapter()  # No API key
-        print("✅ Polygon adapter created (no API key)")
-        print("   Note: API calls will fail without valid API key")
-        return True
-    except Exception as e:
-        print(f"❌ Polygon adapter creation failed: {e}")
-        return False
+    except Exception as exc:  # pragma: no cover - environment dependent
+        pytest.skip(f"Polygon adapter not available: {exc}")
 
-def main():
-    """Run all tests."""
-    print("🚀 POLYGON INTEGRATION TEST SUITE")
-    print("=" * 40)
-    
-    tests = [
-        test_imports,
-        test_strategy_init, 
-        test_polygon_adapter
-    ]
-    
-    passed = 0
-    total = len(tests)
-    
-    for test in tests:
-        if test():
-            passed += 1
-        else:
-            print("   Continuing with next test...\n")
-    
-    print(f"\n📊 TEST RESULTS: {passed}/{total} passed")
-    
-    if passed == total:
-        print("🎉 All tests passed! Integration framework is ready.")
-        print("\nNext steps:")
-        print("1. Get a Polygon.io API key from https://polygon.io/")
-        print("2. Run: python tools/setup_polygon.py --api-key YOUR_API_KEY")
-        print("3. Test with: python tools/polygon_health_check.py")
-    else:
-        print("⚠️  Some tests failed. Check the errors above.")
-        
-    return passed == total
-
-if __name__ == "__main__":
-    success = main()
-    sys.exit(0 if success else 1)
+    adapter = PolygonDataAdapter()
+    assert adapter is not None

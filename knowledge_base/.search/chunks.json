@@ -1,0 +1,1602 @@
+[
+  {
+    "chunk_id": "KB_SCHEMA.md_chunk_0",
+    "file_path": "knowledge_base\\KB_SCHEMA.md",
+    "relative_path": "KB_SCHEMA.md",
+    "topic": "general",
+    "filename": "KB_SCHEMA.md",
+    "content": "Knowledge Base schema and contribution guidelines\n\nPurpose\n\nThis document defines the simple schema and contribution workflow for the repo knowledge base.\n\nSchema (file-level)\n\n- Each topic is a directory under `knowledge_base/` (e.g., `us_economics/`).\n- Each concept is a Markdown file: `YYYY-MM-DD--slug.md` or `slug.md`.\n- Frontmatter (optional, YAML) may include:\n  - title: human title\n  - tags: [\"policy\",\"inflation\",\"goldbach\"]\n  - source: file or URL",
+    "start_pos": 0,
+    "end_pos": 460
+  },
+  {
+    "chunk_id": "KB_SCHEMA.md_chunk_1",
+    "file_path": "knowledge_base\\KB_SCHEMA.md",
+    "relative_path": "KB_SCHEMA.md",
+    "topic": "general",
+    "filename": "KB_SCHEMA.md",
+    "content": "\",\"inflation\",\"goldbach\"]\n  - source: file or URL\n  - source_page: page number (if from a PDF)\n  - author: who added the note\n  - created: ISO timestamp\n\nRecommended file template\n\n---\n# Title\n\nShort summary (1-3 sentences)\n\nKey takeaways\n\n- bullet 1\n- bullet 2\n\nDetails / quotes\n\n> Quote or excerpt (with citation)\n\nReferences\n\n- Source: `Goldbach/goldbach.pdf` page X\n\nChange process\n\n- Add a new file in the relevant folder and open a PR.",
+    "start_pos": 410,
+    "end_pos": 852
+  },
+  {
+    "chunk_id": "KB_SCHEMA.md_chunk_2",
+    "file_path": "knowledge_base\\KB_SCHEMA.md",
+    "relative_path": "KB_SCHEMA.md",
+    "topic": "general",
+    "filename": "KB_SCHEMA.md",
+    "content": "a new file in the relevant folder and open a PR.\n- Add tests or usage examples if the note produces code changes (e.g., new parameters, thresholds).\n\nIndexing / search\n\n- For now the KB is filesystem-based (Markdown). If you want vector search later, we can add a small script to embed files and push to a vector DB or local FAISS store.",
+    "start_pos": 802,
+    "end_pos": 1302
+  },
+  {
+    "chunk_id": "README.md_chunk_0",
+    "file_path": "knowledge_base\\README.md",
+    "relative_path": "README.md",
+    "topic": "general",
+    "filename": "README.md",
+    "content": "# Knowledge Base \u2014 FINANCIAL-TOOLS\n\nThis folder contains curated, version-controlled knowledge the Repo Assistant uses when making changes and generating analysis.\n\nTop-level topics:\n\n- `global_economics/` \u2014 macro themes, global indicators, central bank policies, cross-border capital flows.\n- `us_economics/` \u2014 US-specific policy, Fed guidance, fiscal policy, labor and inflation dynamics.\n- `market_sentiment/` \u2014 sentiment sources, news flows, on-chain signals, retail/institutional indicators.",
+    "start_pos": 0,
+    "end_pos": 497
+  },
+  {
+    "chunk_id": "README.md_chunk_1",
+    "file_path": "knowledge_base\\README.md",
+    "relative_path": "README.md",
+    "topic": "general",
+    "filename": "README.md",
+    "content": "n-chain signals, retail/institutional indicators.\n- `goldbach/` \u2014 research notes and artifacts related to the Goldbach strategy (extracted from `Goldbach/goldbach.pdf` and other documentation).\n\nGuidelines:\n\n- Keep notes factual and cite sources (PDF page, URL, date).\n- Store each major concept as a single markdown file under the appropriate subfolder.\n- Keep summaries short (1-3 paragraphs) and include a short \"Key takeaways\" list and relevant tags.\n- Add a `meta.",
+    "start_pos": 447,
+    "end_pos": 916
+  },
+  {
+    "chunk_id": "README.md_chunk_2",
+    "file_path": "knowledge_base\\README.md",
+    "relative_path": "README.md",
+    "topic": "general",
+    "filename": "README.md",
+    "content": "takeaways\" list and relevant tags.\n- Add a `meta.yml` at the topic root if needed to track provenance.\n\nHow the agent should use this:\n\n- When asked to change strategy code or produce analysis, consult the KB folder for authoritative summaries before changing code.\n- Prefer to reference KB excerpts in PR descriptions and include citations to the original source.",
+    "start_pos": 866,
+    "end_pos": 1366
+  },
+  {
+    "chunk_id": "README.md_chunk_0",
+    "file_path": "knowledge_base\\global_economics\\README.md",
+    "relative_path": "global_economics\\README.md",
+    "topic": "global_economics",
+    "filename": "README.md",
+    "content": "# Global economics \u2014 seed notes\n\nThis folder contains high-level summaries and authoritative links for global macro economics topics.\n\nStarter sources to seed and expand:\n\n- IMF World Economic Outlook: [IMF WEO](https://www.imf.org/en/Publications/WEO)\n- BIS research and reports: [BIS](https://www.bis.org/)\n- ECB policy releases: [ECB press releases](https://www.ecb.europa.eu/press/pr/date/html/index.en.html)\n- Bank for International Settlements (BIS) - Global liquidity research",
+    "start_pos": 0,
+    "end_pos": 485
+  },
+  {
+    "chunk_id": "README.md_chunk_1",
+    "file_path": "knowledge_base\\global_economics\\README.md",
+    "relative_path": "global_economics\\README.md",
+    "topic": "global_economics",
+    "filename": "README.md",
+    "content": "nal Settlements (BIS) - Global liquidity research\n- World Bank macro indicators: [World Bank Data](https://data.worldbank.org/)\n\nGuidance: add a short Markdown note per topic (inflation, growth, supply-chain stresses, cross-border capital flows). Include citations and a `Key takeaways` list.",
+    "start_pos": 435,
+    "end_pos": 935
+  },
+  {
+    "chunk_id": "goldbach_summary.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\goldbach_summary.md",
+    "relative_path": "goldbach\\goldbach_summary.md",
+    "topic": "goldbach",
+    "filename": "goldbach_summary.md",
+    "content": "# Goldbach \u2014 extracted notes (placeholder)\n\nThis file is a placeholder. Run `python tools/ingest_goldbach_pdf.py --pdf Goldbach/goldbach.pdf --out knowledge_base/goldbach` to extract the PDF contents and generate a cleaned summary here.\n\nAfter running the ingestion, review the generated files for accuracy and remove any OCR artifacts.",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "# Detected key terms\n\n## EMA\n- page 5: `numbers continues to be revered and studied by people all over the world. From mathematics and science to art and literature, the power of three can be found in many different...`\n- page 7: `number three. In mathematics, a power of three is a number of the form 3n where n is an integer \u2013 that is, the result...`\n- page 17: `information about PO3 stop runs. Have a look for the external range demarker section....`\n- page 26: `of mathematics.",
+    "start_pos": 0,
+    "end_pos": 482
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "demarker section....`\n- page 26: `of mathematics. It states that every even natural number greater than 2 is the sum of two prime numbers.2...`\n- page 34: `EXTERNAL RANGE DEMARKERS We defined dealing ranges using PO3 values. This defines...`\n- page 34: `You\u2019ll often see that a big move starts from an external range remarker as well....`\n- page 42: `and how do they relate to goldbach External range demarkers and where PO3 stop runs come into play...`",
+    "start_pos": 432,
+    "end_pos": 887
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_2",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "arkers and where PO3 stop runs come into play...`\n- page 73: `You are eligible to request an affiliate link. In order to do this, send an email to affiliate@hopiplaka.com with the email address you\u2019ve used to purchase the book....`\n- page 73: `this, send an email to affiliate@hopiplaka.com with the email address you\u2019ve used to purchase the book. When you successfully market 5 books, you have your...`\n## premium\n- page 16: `ranges.",
+    "start_pos": 837,
+    "end_pos": 1271
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_3",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": ", you have your...`\n## premium\n- page 16: `ranges. You will have a premium part, a discount part and an equilibrium part....`\n- page 28: `Cluster Discount Premium 1 0 100...`\n- page 28: `You can see the for each cluster, the discount number and the premium number add up to the number 100. These clusters also explain market symmetry. The low...`\n- page 28: `89) are symmetrical opposed to each other.",
+    "start_pos": 1221,
+    "end_pos": 1622
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_4",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "ge 28: `89) are symmetrical opposed to each other. You can identify a discount number, and a premium number, and map the prime numbers making up a goldbach...`\n- page 30: `levels we calculated for the number 100. The 7 pairs make up the premium and discount levels. You will also see that the levels are 6% apart from each...`\n- page 41: `expanded into the predefined level to form the high of the algo, which is the premium fair value gap.",
+    "start_pos": 1572,
+    "end_pos": 2012
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_5",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "of the algo, which is the premium fair value gap. To get a cleaner chart, you can filter out all the goldbach...`\n## discount\n- page 16: `ranges. You will have a premium part, a discount part and an equilibrium part....`\n- page 28: `Cluster Discount Premium 1 0 100...`\n- page 28: `7 47 53 You can see the for each cluster, the discount number and the premium number add up to the number 100....`\n- page 28: `89) are symmetrical opposed to each other.",
+    "start_pos": 1962,
+    "end_pos": 2414
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_6",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "ge 28: `89) are symmetrical opposed to each other. You can identify a discount number, and a premium number, and map the prime numbers making up a goldbach...`\n- page 30: `levels we calculated for the number 100. The 7 pairs make up the premium and discount levels. You will also see that the levels are 6% apart from each...`\n## stop\n- page 17: `PO3 STOP RUNS Power of three stop runs can come into 2 shapes....`\n- page 17: `PO3 STOP RUNS Power of three stop runs can come into 2 shapes.",
+    "start_pos": 2364,
+    "end_pos": 2852
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_7",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "S Power of three stop runs can come into 2 shapes. Either it\u2019s a real stop run of the buy - or sell side liquidity....`\n- page 17: `Power of three stop runs can come into 2 shapes. Either it\u2019s a real stop run of the buy - or sell side liquidity. You\u2019ll typically see a stop run under an old low or above an...`\n- page 17: `Either it\u2019s a real stop run of the buy - or sell side liquidity.",
+    "start_pos": 2802,
+    "end_pos": 3189
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_8",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "real stop run of the buy - or sell side liquidity. You\u2019ll typically see a stop run under an old low or above an old high of 27, 81, 243 pips, depending on the time frame....`\n- page 17: `old high of 27, 81, 243 pips, depending on the time frame. Or price stops at a certain level, most likely a dealing range high or low, and will create a wick of a PO3 size, so a...`\n- page 17: `Later in this book you can read some additional information about PO3 stop runs.",
+    "start_pos": 3139,
+    "end_pos": 3600
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_9",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "d some additional information about PO3 stop runs. Have a look for the external range demarker section....`\n- page 18: `A 27 PO3 stop run Above you can see the 27 pip stop run on the sell side...`\n- page 18: `A 27 PO3 stop run Above you can see the 27 pip stop run on the sell side liquidity....`\n- page 22: `Next, we see that the 243-729 was used. Price broke the 729 level, and did a PO3 stop run and went back into the range defined by 243-729...`",
+    "start_pos": 3550,
+    "end_pos": 4001
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_10",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "d went back into the range defined by 243-729...`\n- page 22: `Later on, the 2187 and 6561 were breached, and price had a hard stop at exactly 19683....`\n- page 23: `What does it mean to stay in the range What are PO3 stop runs What is range expansion and contraction...`\n- page 34: `something we learned in the PO3 chapter, part about PO3 stop runs. Basically what you do is add following fib values to your...`\n- page 34: `chart. What this means is, it highlights stop runs of 2 lower PO3 numbers...",
+    "start_pos": 3951,
+    "end_pos": 4451
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_11",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "it highlights stop runs of 2 lower PO3 numbers....`\n- page 34: `For example, if you\u2019re currently using a 2187 PO3 dealing range, it will put a stop run level of 2 PO3 lower, which is not 729, but 243....`\n- page 42: `and how do they relate to goldbach External range demarkers and where PO3 stop runs come into play...`\n- page 45: `October, we will use the number 108. With this number (108 in this case), we will look for a stop run of 108 pips in any of the previous 3 partitions (the...`",
+    "start_pos": 4401,
+    "end_pos": 4893
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_12",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "pips in any of the previous 3 partitions (the...`\n- page 45: `What is also possible is that you don\u2019t need to look for a stop run, but that you\u2019ll find a FVG of this amount of pips...`\n- page 46: `We expect price to aggressively trade away (reverse) from this point, and we expect a PO3 stop run on the opposite direction....`\n- page 46: `direction. This PO3 stop run can be either a real liquidity stop run, or when you see a PO3 size wick, it\u2019s possible this wick is used...`",
+    "start_pos": 4843,
+    "end_pos": 5321
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_13",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "O3 size wick, it\u2019s possible this wick is used...`\n- page 46: `as a target. When the PO3 stop run occurred, you\u2019ll typically see that price goes back into the trading range defined for the current...`\n- page 50: `Monday following this day, so we arrive at January the 10th. We are still looking for either gaps or stop runs of 18 pips just when the new partition starts....`\n- page 50: `When we hit this level, price breaks down, and it does a 81 PO3 stop run, triggering the reversal in price....`",
+    "start_pos": 5271,
+    "end_pos": 5769
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_14",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "3 stop run, triggering the reversal in price....`\n- page 51: `7th. We are looking for a 27 pip stop run or a gap. On the 4th trading day, we see we hit the 27 pip stop run...`\n- page 51: `We are looking for a 27 pip stop run or a gap. On the 4th trading day, we see we hit the 27 pip stop run of the previous partition....`\n- page 51: `of the previous partition. Price breaks down, and does a 243 PO3 stop run, closing the current partition, and be ready for the March partition....`",
+    "start_pos": 5719,
+    "end_pos": 6203
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_15",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "tition, and be ready for the March partition....`\n- page 53: `which was tested multiple times. Should you have look for a 45 pip sell side stop run, you could see a nice +100pip reaction from it, but ultimately it...`\n- page 53: `failed. After the failed swing, you can witness a 243 PO3 stop run....`\n- page 54: `5 4 May, the 5th month where we look for 54 pip stop runs or gaps, is interesting....`",
+    "start_pos": 6153,
+    "end_pos": 6554
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_16",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "for 54 pip stop runs or gaps, is interesting....`\n- page 54: `When the HIPPO triggered the sell off, we did a 81 PO3 stop run, where price reversed and headed to another 54 pip gap in the previous partition....`\n- page 55: `Should you not see this order block, and were looking for the 63 pip sell side stop run, you will have a failed swing (and potential loss)....`\n- page 56: `created at the end of the previous partition, you will face a loss when the 72 stop run block was ran through.",
+    "start_pos": 6504,
+    "end_pos": 6994
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_17",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "a loss when the 72 stop run block was ran through. A HIPPO was created at the bottom of the 72 pip stop run,...`\n- page 56: `loss when the 72 stop run block was ran through. A HIPPO was created at the bottom of the 72 pip stop run, and we saw a 243 PO3 stop run straight from the HIPPO....`\n- page 56: `A HIPPO was created at the bottom of the 72 pip stop run, and we saw a 243 PO3 stop run straight from the HIPPO. Price ran back into the HIPPO after the 243 PO3 stop run...`",
+    "start_pos": 6944,
+    "end_pos": 7421
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_18",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "ack into the HIPPO after the 243 PO3 stop run...`\n- page 56: `and we saw a 243 PO3 stop run straight from the HIPPO. Price ran back into the HIPPO after the 243 PO3 stop run on the sell side occurred....`\n- page 57: `August, the 8th month was a beautiful setup. We did the 81 pip stop run of the buy side liquidity of a swing created in the previous partition....`\n- page 57: `swing created in the previous partition.",
+    "start_pos": 7371,
+    "end_pos": 7788
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_19",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "page 57: `swing created in the previous partition. Price sold off, and we did a 81 PO3 stop run of the sell side liquidity of the previous partition....`\n- page 58: `arrive at 99. Here we saw a nice 99 pip stop run of a swing created in the previous partition, and price sold off....`\n- page 58: `the previous partition, and price sold off. By now, you know the drill. You look for a PO3 stop run, which came in as a 243 PO3 stop run....`\n- page 58: `By now, you know the drill.",
+    "start_pos": 7738,
+    "end_pos": 8216
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_20",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "p run....`\n- page 58: `By now, you know the drill. You look for a PO3 stop run, which came in as a 243 PO3 stop run. Price returned back into a bearish order block....`\n- page 59: `Price was offered to the buy side, and we did a 81 PO3 stop run. Price went back to the top of the 108 block....`\n- page 60: `start November\u2019s partition, creating the gap. We just fell short of a 243 PO3 stop run of the 60 day loopback ( 3 partitions ago )....`\n- page 61: `consolidation profile most of the time.",
+    "start_pos": 8166,
+    "end_pos": 8660
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_21",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "page 61: `consolidation profile most of the time. We could see a nice 126 pip stop run on the highs of the previous partition (20 day lookback)....`\n- page 61: `previous partition (20 day lookback). The PO3 stop run was under the current partition low, which is a hallmark for the consolidation profile....`\n- page 62: `partitions How to anticipate reversals using PO3 stop runs...`\n## algorithm\n- page 36: `ALGORITHMS So if we are using a Tesla Vortex, but we base the calculation...`",
+    "start_pos": 8610,
+    "end_pos": 9097
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_22",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "g a Tesla Vortex, but we base the calculation...`\n- page 37: `And interesting, ict mentioned back in the old days that there are 2 algorithms, one of which is the MMxM. MMxM: is either a Market Maker Buy Model or a Market...`\n- page 38: `You can see here that algo 1 is reflecting the MMxM, and algo 2 is a trending algorithm, creating OTE (optimal trade entries) along the way up or down....`",
+    "start_pos": 9047,
+    "end_pos": 9441
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_23",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "imal trade entries) along the way up or down....`\n- page 40: `levels inside these dealing ranges (using goldbach), and we understand that price is offered by any of the 2 algorithms, we can get to work....`\n- page 41: `levels that are not needed for the flow of the specific algorithm. While we\u2019re generally not calling tops and bottoms, using...`",
+    "start_pos": 9391,
+    "end_pos": 9739
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_24",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "generally not calling tops and bottoms, using...`\n- page 41: `While we\u2019re generally not calling tops and bottoms, using the po3 dealing ranges, goldbach levels and the algorithm flow, together with confluences of what you\u2019re about to learn...`\n- page 42: `come into play What are the 2 algorithms that are based on goldbach levels...`\n## phase\n- page 64: `is made up out of 3 other circles. So each of the 3 circles which make up the AMD phase, has their own AMD cycle in it....`",
+    "start_pos": 9689,
+    "end_pos": 10169
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_25",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "the AMD phase, has their own AMD cycle in it....`\n- page 65: `14:00-14:00 EST You can see there that we have a accumulation phase during the Asian session, the London session breaks out of...`\n- page 65: `the Asian consolidation and retraces back into the consolidation during the manipulation phase (and forms the Judas), and price is being distributed during New York....`",
+    "start_pos": 10119,
+    "end_pos": 10494
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_26",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "d price is being distributed during New York....`\n- page 66: `The asian session and the New York session are the accumulation phase and distribution phase respectively, and are 9 hours long, again a reference to the 3 (sessions) and 6...`\n- page 67: `Now, I told you that we can break each phase into smaller AMD phases, as price is fractal....`\n- page 67: `Now, I told you that we can break each phase into smaller AMD phases, as price is fractal.",
+    "start_pos": 10444,
+    "end_pos": 10892
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_27",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "hase into smaller AMD phases, as price is fractal. So if we look for instance at the manipulation phase of the...`\n- page 67: `AMD phases, as price is fractal. So if we look for instance at the manipulation phase of the above screenshot, we can fine tune it using the smaller AMD...`\n- page 67: `cycle You can see the accumulation phase, this is violated (market structure shift) and retraced back into (to form an...`",
+    "start_pos": 10842,
+    "end_pos": 11261
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_28",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "ure shift) and retraced back into (to form an...`\n- page 67: `After the retracement into the consolidation of the accumulation phase, we expand into a pool of interest (liquidity, fvg, \u2026)...`\n- page 68: `finger on it: T-he sweet spots for the manipulation phase are: - London: 07:30-08:30 CET or 01:30-02:30 EST...`\n- page 69: `Map the circles to the Accumulation, manipulation, distribution phases How the AMD cycles are fractal...`\n## entry\n- page 70: `objective OTE Optimal trade entry...`\n## RSI",
+    "start_pos": 11211,
+    "end_pos": 11711
+  },
+  {
+    "chunk_id": "key_terms.md_chunk_29",
+    "file_path": "knowledge_base\\goldbach\\key_terms.md",
+    "relative_path": "goldbach\\key_terms.md",
+    "topic": "goldbach",
+    "filename": "key_terms.md",
+    "content": "70: `objective OTE Optimal trade entry...`\n## RSI\n- page 73: `this book evolves continuously, as a registered buyer you will receive new versions free of charge, accessible in t-he discord server...`\n- page 73: `And much more\u2026 Version 1.0 - January 2023...`",
+    "start_pos": 11661,
+    "end_pos": 12161
+  },
+  {
+    "chunk_id": "raw-page-001.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-001.md",
+    "relative_path": "goldbach\\raw-page-001.md",
+    "topic": "goldbach",
+    "filename": "raw-page-001.md",
+    "content": "# Page 1\n\nDEMYSTIFYING ICT:\nWHAT EVERY\nICT TRADER\u2026\nSTILL WANTS\nTO KNOW\nBY HOPIPLAKA",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-002.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-002.md",
+    "relative_path": "goldbach\\raw-page-002.md",
+    "topic": "goldbach",
+    "filename": "raw-page-002.md",
+    "content": "# Page 2\n\n0.\nPROLOGUE\n\u201cIF ONLY YOU WOULD KNOW THE\nMAGNIFICENCE OF THE 3, 6, AND 9, YOU\nWOULD HAVE A KEY TO THE\nUNIVERSE.\u201d\nNIKOLA TESLA",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-003.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-003.md",
+    "relative_path": "goldbach\\raw-page-003.md",
+    "topic": "goldbach",
+    "filename": "raw-page-003.md",
+    "content": "# Page 3\n\nDear reader,\nThank you for downloading our book on demystifying ict,\nshort for innercircletrader.\nWe hope that you will find value in the information and\ninsights contained within these pages.\nAs you read through this book, we hope that you will\ncome to understand and appreciate the significance of power\nof three numbers, and learn how to use them to your\nadvantage, using PO3 dealing ranges.\nWhether you are a seasoned trader, a novice trader, or",
+    "start_pos": 0,
+    "end_pos": 460
+  },
+  {
+    "chunk_id": "raw-page-003.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-003.md",
+    "relative_path": "goldbach\\raw-page-003.md",
+    "topic": "goldbach",
+    "filename": "raw-page-003.md",
+    "content": "er you are a seasoned trader, a novice trader, or\nsimply someone seeking to improve your understanding of\nthe dealing ranges, we believe that using power of three in\nyour trade arsenal will be a valuable tool for you.\nWe will also delve into what we call the Huddleston levels,\nhow it relates to the IPDA levels and why the number 6 plays\na crucial role here\nLast but not least, we will unlock the secrets of the\n20-40-60 loopback period, where the number 9 will play a\nprominent role.",
+    "start_pos": 410,
+    "end_pos": 896
+  },
+  {
+    "chunk_id": "raw-page-003.md_chunk_2",
+    "file_path": "knowledge_base\\goldbach\\raw-page-003.md",
+    "relative_path": "goldbach\\raw-page-003.md",
+    "topic": "goldbach",
+    "filename": "raw-page-003.md",
+    "content": "d, where the number 9 will play a\nprominent role.\nWe hope that you will find the information and examples\nprovided in this book to be useful and inspiring, and that you\nwill apply what you learn to your own trading career.\nOnce again, thank you for downloading this book. We\nhope that you will find it to be a valuable resource, and that\nyou will join us in exploring the many wonders of the riddles\nict put in his mentorship.",
+    "start_pos": 846,
+    "end_pos": 1346
+  },
+  {
+    "chunk_id": "raw-page-004.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-004.md",
+    "relative_path": "goldbach\\raw-page-004.md",
+    "topic": "goldbach",
+    "filename": "raw-page-004.md",
+    "content": "# Page 4\n\n1.\nPOWER OF THREE NUMBERS\n\u201cTHREE GREAT FORCES RULE THE\nWORLD: STUPIDITY, FEAR AND GREED.\"\nALBERT EINSTEIN",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-005.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-005.md",
+    "relative_path": "goldbach\\raw-page-005.md",
+    "topic": "goldbach",
+    "filename": "raw-page-005.md",
+    "content": "# Page 5\n\nINTRODUCTION TO PO3\nThe power of three numbers is a concept that has\nfascinated people for centuries. These numbers, often\nreferred to as \"triplet numbers,\" are said to hold a special\npower and significance, and have been revered by many\ncultures throughout history.\nBut what are these mysterious numbers, and how can we\nuse them to unlock the secrets of the universe? We will learn\nhow to calculate and understand these special numbers.",
+    "start_pos": 0,
+    "end_pos": 448
+  },
+  {
+    "chunk_id": "raw-page-005.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-005.md",
+    "relative_path": "goldbach\\raw-page-005.md",
+    "topic": "goldbach",
+    "filename": "raw-page-005.md",
+    "content": "o calculate and understand these special numbers.\nFirst, let's start with a brief history of the power of three.\nThe concept of triplet numbers can be traced back to ancient\ncivilisations, where they were often associated with spiritual\nor religious significance. In many cultures, three was seen as\na perfect number, representing balance and harmony.\nThe power of three was also prevalent in the mythology of\nmany ancient cultures. In Greek mythology, the number three",
+    "start_pos": 398,
+    "end_pos": 868
+  },
+  {
+    "chunk_id": "raw-page-005.md_chunk_2",
+    "file_path": "knowledge_base\\goldbach\\raw-page-005.md",
+    "relative_path": "goldbach\\raw-page-005.md",
+    "topic": "goldbach",
+    "filename": "raw-page-005.md",
+    "content": "nt cultures. In Greek mythology, the number three\nwas associated with the goddess of wisdom, Athena, and the\ngod of war, Ares. In Hindu mythology, the number three was\nconsidered sacred and represented the three worlds of\ncreation, preservation, and destruction.\nBut the power of three is not just limited to ancient history\nand mythology. In modern times, the concept of triplet\nnumbers continues to be revered and studied by people all\nover the world. From mathematics and science to art and",
+    "start_pos": 818,
+    "end_pos": 1312
+  },
+  {
+    "chunk_id": "raw-page-005.md_chunk_3",
+    "file_path": "knowledge_base\\goldbach\\raw-page-005.md",
+    "relative_path": "goldbach\\raw-page-005.md",
+    "topic": "goldbach",
+    "filename": "raw-page-005.md",
+    "content": "he world. From mathematics and science to art and\nliterature, the power of three can be found in many different\nfields.",
+    "start_pos": 1262,
+    "end_pos": 1762
+  },
+  {
+    "chunk_id": "raw-page-006.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-006.md",
+    "relative_path": "goldbach\\raw-page-006.md",
+    "topic": "goldbach",
+    "filename": "raw-page-006.md",
+    "content": "# Page 6\n\nOur focus will be on finance, where we are talking about\naccumulation, manipulation, distribution1.\nNow that we've learned a bit about the history and\nmythology surrounding the power of three, let's delve into\nhow to calculate and understand these special numbers.\n1 AMD cycle is a concept introduced by ict",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-007.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-007.md",
+    "relative_path": "goldbach\\raw-page-007.md",
+    "topic": "goldbach",
+    "filename": "raw-page-007.md",
+    "content": "# Page 7\n\nCALCULATING POWERS OF\nTHREE\nIn finance, dealing ranges are made of powers of the\nnumber three.\nIn mathematics, a power of three is a number of the\nform 3n where n is an integer \u2013 that is, the result\nof exponentiation with number three as the base and\ninteger n as the exponent.\nYou can also calculate the result multiplying the number 3\nx times.\n3 x 3 = 9\nThe result, 9, is the power of three for the integer 2., or 32\nWe can continue this process for any number we choose. For",
+    "start_pos": 0,
+    "end_pos": 488
+  },
+  {
+    "chunk_id": "raw-page-007.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-007.md",
+    "relative_path": "goldbach\\raw-page-007.md",
+    "topic": "goldbach",
+    "filename": "raw-page-007.md",
+    "content": "ntinue this process for any number we choose. For\nexample, the powers of three for the integer 5 would be:\n3 x 3 x 3 x 3 x 3 = 243\nIn excel, a powers of the number three is calculated using\nfollowing formula:\npower(3, integer)\nDepending on your asset, the powers of three result you\nget from your calculation is either expressed in pips or in\nticks.",
+    "start_pos": 438,
+    "end_pos": 938
+  },
+  {
+    "chunk_id": "raw-page-008.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-008.md",
+    "relative_path": "goldbach\\raw-page-008.md",
+    "topic": "goldbach",
+    "filename": "raw-page-008.md",
+    "content": "# Page 8\n\nFor example, a fixed dealing range for foreign exchange\nasset (fx) EURUSD might be 243 pips (35), while a Nasdaq\nfutures symbol is expressed in ticks, for example 81 (34) ticks.\nOnce you\u2019re settled with a powers of three number you\u2019re\ninterested in, you can calculate the dealing range.\nA dealing range is a piece of price action where we expect\nswings to happen. It typically has a dealing range low and a\ndealing range high.\nPrice tend to stay inside this dealing range, unless it",
+    "start_pos": 0,
+    "end_pos": 493
+  },
+  {
+    "chunk_id": "raw-page-008.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-008.md",
+    "relative_path": "goldbach\\raw-page-008.md",
+    "topic": "goldbach",
+    "filename": "raw-page-008.md",
+    "content": "tend to stay inside this dealing range, unless it\nbreaks out this dealing range, and goes to the next partition.\nWhen we define a dealing range we\u2019re interested in (in\neither pips or ticks), we will use this number to define the\npartitions, starting from base 0.0.\nFor example, when we identify that a stock moves around\n27 points on average (we do this visually, it will jump off from\nthe chart), we define the partitions for it.\nPartition 1 will run from 0 -> 27\nPartition 2 will run from 27 -> 56",
+    "start_pos": 443,
+    "end_pos": 943
+  },
+  {
+    "chunk_id": "raw-page-008.md_chunk_2",
+    "file_path": "knowledge_base\\goldbach\\raw-page-008.md",
+    "relative_path": "goldbach\\raw-page-008.md",
+    "topic": "goldbach",
+    "filename": "raw-page-008.md",
+    "content": "n from 0 -> 27\nPartition 2 will run from 27 -> 56\nPartition 3 will run from 56 -> 81\n\u2026\nIf we calculated the partitions (more on the next part), and\nwe see that price is aggressively trading though our levels,\nwe might consider doing a range expansion.\nWe have a part devoted to range expansion or\ncontraction, but basically, you take a larger PO3 number.\nIn our example above, the next PO3 number after 27 will\nbe 81, and we\u2019ll use 81 to define our PO3 partitions.",
+    "start_pos": 893,
+    "end_pos": 1358
+  },
+  {
+    "chunk_id": "raw-page-008.md_chunk_3",
+    "file_path": "knowledge_base\\goldbach\\raw-page-008.md",
+    "relative_path": "goldbach\\raw-page-008.md",
+    "topic": "goldbach",
+    "filename": "raw-page-008.md",
+    "content": "1, and we\u2019ll use 81 to define our PO3 partitions.\nWhen you\u2019re only interested in the current PO3 partition,\nbecause this is where current price action is taking place, go",
+    "start_pos": 1308,
+    "end_pos": 1808
+  },
+  {
+    "chunk_id": "raw-page-009.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-009.md",
+    "relative_path": "goldbach\\raw-page-009.md",
+    "topic": "goldbach",
+    "filename": "raw-page-009.md",
+    "content": "# Page 9\n\nto the next part, where we discuss the calculation of the\ncurrent PO3 partition.\nAbove you see a chart of Microsoft with all visible PO3\npartitions for PO3 27 on it.\nWe start at base 0, this partition runs until 27, the next\npartition runs from 27 towards 54, next from 54 to 81, \u2026\nTypically, as discussed, price tends to \u201cstay in the range\u201d\nfor a while. It can briefly leave to range, and go back into it, or\nit can leave it, and move on to the next PO3 partition.",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-010.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-010.md",
+    "relative_path": "goldbach\\raw-page-010.md",
+    "topic": "goldbach",
+    "filename": "raw-page-010.md",
+    "content": "# Page 10\n\nBelow you\u2019ll find an overview of a typical range, and map it\nto the trader you are. (Scalper, day trader, long term trader, \u2026)\nNumber Result Used For\n31 3\n32 9\n33 27 Scalping\n34 81 Daily Range\n35 243 Weekly Range\n36 729 Monthly Range\n37 2187 Yearly Range\n38 6561\n39 19683\n310 59049",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-012.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-012.md",
+    "relative_path": "goldbach\\raw-page-012.md",
+    "topic": "goldbach",
+    "filename": "raw-page-012.md",
+    "content": "# Page 12\n\nUSING PO3 DEALING RANGES\nIn the previous part, we learned how to calculate the PO3\nnumbers. These numbers are now going to be used to define\nour PO3 dealing ranges.\nRemember from the previous part, we will use PO3\npartitions starting from base 0, so start at the 0 level.\nThis can be 0 for crypto, stocks, \u2026 or 0.0 for forex.\nIn order to calculate the dealing range\u2019 partition we\u2019re\ncurrently in for our asset \u2013 be it fx, indices, crypto, \u2026 \u2013 we\nnee-d to have following variables:",
+    "start_pos": 0,
+    "end_pos": 492
+  },
+  {
+    "chunk_id": "raw-page-012.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-012.md",
+    "relative_path": "goldbach\\raw-page-012.md",
+    "topic": "goldbach",
+    "filename": "raw-page-012.md",
+    "content": "crypto, \u2026 \u2013 we\nnee-d to have following variables:\n- current price\nthe power of three number we\u2019re interested in\nWe\u2019re going to draw a fixed range, using 2 lines, which will\ndelineate our PO3 dealing range.\nFor the current price, we\u2019re just going to open a chart, and\ntake the price that\u2019s currently printing.\nNow, we\u2019re going to calculate the current PO3 dealing\nrange low and high.\nFor this, we take the current price, and remove the\ndecimal point, if there is one.",
+    "start_pos": 442,
+    "end_pos": 909
+  },
+  {
+    "chunk_id": "raw-page-012.md_chunk_2",
+    "file_path": "knowledge_base\\goldbach\\raw-page-012.md",
+    "relative_path": "goldbach\\raw-page-012.md",
+    "topic": "goldbach",
+    "filename": "raw-page-012.md",
+    "content": "e, and remove the\ndecimal point, if there is one.\nWe are also only interested in the first 5 digits.",
+    "start_pos": 859,
+    "end_pos": 1359
+  },
+  {
+    "chunk_id": "raw-page-013.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-013.md",
+    "relative_path": "goldbach\\raw-page-013.md",
+    "topic": "goldbach",
+    "filename": "raw-page-013.md",
+    "content": "# Page 13\n\nAsset Current Price Price to take\nEURUSD 1.23459 12345\nSP500 4032.8 40328\nBitcoin 23589.4 23589\nDXY 124.456 12445\nNow that we have our base price to use, all we need is the\npower of three number we\u2019re interested in.\n(be sure to check the table on the previous part to identify\nwhat type of trader you are)\nBy having a look at the Power of Three Numbers we can\nchoose the number for the trade style we\u2019re interested in,\nsuch as a scalper (27), a day trader (81), \u2026",
+    "start_pos": 0,
+    "end_pos": 475
+  },
+  {
+    "chunk_id": "raw-page-013.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-013.md",
+    "relative_path": "goldbach\\raw-page-013.md",
+    "topic": "goldbach",
+    "filename": "raw-page-013.md",
+    "content": "in,\nsuch as a scalper (27), a day trader (81), \u2026\nUse the following formula to calculate the low of the\ncurrent fixed dealing range.\ndealing range low = floor(current price /\npo3 number) * po3 number",
+    "start_pos": 425,
+    "end_pos": 925
+  },
+  {
+    "chunk_id": "raw-page-014.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-014.md",
+    "relative_path": "goldbach\\raw-page-014.md",
+    "topic": "goldbach",
+    "filename": "raw-page-014.md",
+    "content": "# Page 14\n\nEXAMPLES\nUsing the floor function in for example excel, you take the\ncurrent price, divide it by the power of three number, and you\nonly take the integer part, ignoring the fractional part.\ncurren po3 floor(current Dealing\nt price number price / po3 range\nnumber) low\n12345 243 50 12150\n40328 81 497 40257\n23589 2187 12150 21870\nNow we have our dealing range low, we can calculate the\ndealing range high.\nWe just take the dealing range low and add the power of",
+    "start_pos": 0,
+    "end_pos": 472
+  },
+  {
+    "chunk_id": "raw-page-014.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-014.md",
+    "relative_path": "goldbach\\raw-page-014.md",
+    "topic": "goldbach",
+    "filename": "raw-page-014.md",
+    "content": "t take the dealing range low and add the power of\nthree number we used in our formula above to it.\nSo let\u2019s say we are calculating the dealing range high for\nour EURUSD asset.\nWe determined above that the PO3 dealing range low for\nour 243 PO3 range was 12150.\nWe add the 243 PO3 number to it, and we get a dealing\nrange high of 12150+243 = 12393",
+    "start_pos": 422,
+    "end_pos": 922
+  },
+  {
+    "chunk_id": "raw-page-015.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-015.md",
+    "relative_path": "goldbach\\raw-page-015.md",
+    "topic": "goldbach",
+    "filename": "raw-page-015.md",
+    "content": "# Page 15\n\ndealing range high = dealing range low +\npo3 number\nThe last step we need to do is to put back the decimal\npoint, at the position it originally was.\nIn our EURUSD example, the decimal point was after the\nfirst position, so we get following dealing range low and high\nfor our 243 PO3 range\ndealing range low = 1.2150\ndealing range high = 1.2393",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-016.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-016.md",
+    "relative_path": "goldbach\\raw-page-016.md",
+    "topic": "goldbach",
+    "filename": "raw-page-016.md",
+    "content": "# Page 16\n\nAbove you see a 243 PO3 dealing range, with equilibrium\nand the 1/3 and 2/3 levels as well.\nThe nice thing of the PO3 ranges is that you can divide\nthem in 3 parts, and each of those 3 parts, will be a smaller\nPO3 range in itself.\nSo the above 243 PO3 consists out of 3 smaller 81 PO3\nranges.\nYou will have a premium part, a discount part and an\nequilibrium part.\nWe will refine the levels to be used inside the dealing\nrange later in this book.",
+    "start_pos": 0,
+    "end_pos": 457
+  },
+  {
+    "chunk_id": "raw-page-016.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-016.md",
+    "relative_path": "goldbach\\raw-page-016.md",
+    "topic": "goldbach",
+    "filename": "raw-page-016.md",
+    "content": "used inside the dealing\nrange later in this book.\nIf you can\u2019t wait, read up on the Huddleston levels.",
+    "start_pos": 407,
+    "end_pos": 907
+  },
+  {
+    "chunk_id": "raw-page-017.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-017.md",
+    "relative_path": "goldbach\\raw-page-017.md",
+    "topic": "goldbach",
+    "filename": "raw-page-017.md",
+    "content": "# Page 17\n\nPO3 STOP RUNS\nPower of three stop runs can come into 2 shapes.\nEither it\u2019s a real stop run of the buy - or sell side liquidity.\nYou\u2019ll typically see a stop run under an old low or above an\nold high of 27, 81, 243 pips, depending on the time frame.\nOr price stops at a certain level, most likely a dealing\nrange high or low, and will create a wick of a PO3 size, so a\nwick of 27, 81, 243 long.\nIf this is the case, you now have a valid rejection block,",
+    "start_pos": 0,
+    "end_pos": 463
+  },
+  {
+    "chunk_id": "raw-page-017.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-017.md",
+    "relative_path": "goldbach\\raw-page-017.md",
+    "topic": "goldbach",
+    "filename": "raw-page-017.md",
+    "content": "s the case, you now have a valid rejection block,\nand the open or close of the rejection block can be used to\nenter a trade.\nLater in this book you can read some additional\ninformation about PO3 stop runs. Have a look for the external\nrange demarker section.",
+    "start_pos": 413,
+    "end_pos": 913
+  },
+  {
+    "chunk_id": "raw-page-018.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-018.md",
+    "relative_path": "goldbach\\raw-page-018.md",
+    "topic": "goldbach",
+    "filename": "raw-page-018.md",
+    "content": "# Page 18\n\nA 27 PO3 stop run\nAbove you can see the 27 pip stop run on the sell side\nliquidity.\nPrice rejects, breaks an old short term high, forms an OTE\nto go long",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-019.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-019.md",
+    "relative_path": "goldbach\\raw-page-019.md",
+    "topic": "goldbach",
+    "filename": "raw-page-019.md",
+    "content": "# Page 19\n\nA wick of a PO3 number\nAbove you can see a bar with a large wick. This wick\ncomes in the form of a 27 PO3 size.\nThis confirms our rejection block, and the next candle can\nbe used to enter a long position.\nThe trade closed the gap/trader into a breaker",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-020.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-020.md",
+    "relative_path": "goldbach\\raw-page-020.md",
+    "topic": "goldbach",
+    "filename": "raw-page-020.md",
+    "content": "# Page 20\n\nRANGE EXPANSION AND\nCONTRACTION\nRange expansion and contraction is when the current PO3\ndealing range is not sufficient anymore.\nThis is a concept I use with stocks, or new assets like\nbitcoin for instance.\nOther than using a PO3 dealing range as seen above, which I\nuse for forex and indices, to see what current PO3 partition\nwe\u2019re in, here we just use the real PO3 numbers.\nWe start with one of the smallest PO3 numbers, for\nexample 9. If price moves out of this range we do a range",
+    "start_pos": 0,
+    "end_pos": 497
+  },
+  {
+    "chunk_id": "raw-page-020.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-020.md",
+    "relative_path": "goldbach\\raw-page-020.md",
+    "topic": "goldbach",
+    "filename": "raw-page-020.md",
+    "content": "9. If price moves out of this range we do a range\nexpansion, and we take the next PO3 number, which is 27.\nIf this range is breached to the upside, we will do another\nrange expansion, and we\u2019ll take 81, 243, 729, \u2026\nIf price retraces however, and we continue to make lower\nprices, we do a range contraction.\nLet\u2019s say we were in the 243-729 price range, but price\nmoved below the 243 price range, we will now consider the\nrange 81-243 as our main dealing range.",
+    "start_pos": 447,
+    "end_pos": 947
+  },
+  {
+    "chunk_id": "raw-page-021.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-021.md",
+    "relative_path": "goldbach\\raw-page-021.md",
+    "topic": "goldbach",
+    "filename": "raw-page-021.md",
+    "content": "# Page 21\n\nOn this bitcoin chart, you can see price moved out of the\n81 dealing range, and the range 81-243 was used",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-022.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-022.md",
+    "relative_path": "goldbach\\raw-page-022.md",
+    "topic": "goldbach",
+    "filename": "raw-page-022.md",
+    "content": "# Page 22\n\nNext, we see that the 243-729 was used. Price broke the\n729 level, and did a PO3 stop run and went back into the\nrange defined by 243-729\nLater on, the 2187 and 6561 were breached, and price had\na hard stop at exactly 19683.",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-023.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-023.md",
+    "relative_path": "goldbach\\raw-page-023.md",
+    "topic": "goldbach",
+    "filename": "raw-page-023.md",
+    "content": "# Page 23\n\nWHAT YOU LEARNED IN THIS CHAPTER\nWhat are Power of three numbers\nHow to calculate PO3 dealing ranges\nUnderstand PO3 partitions\nWhat does it mean to stay in the range\nWhat are PO3 stop runs\nWhat is range expansion and contraction",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-024.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-024.md",
+    "relative_path": "goldbach\\raw-page-024.md",
+    "topic": "goldbach",
+    "filename": "raw-page-024.md",
+    "content": "# Page 24\n\n2.\nHUDDLESTON LEVELS\n\u201cNOW IF 6 TURNED OUT TO BE 9\nI DON'T MIND, I DON'T MIND\u201d\nBOB MARLEY",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-025.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-025.md",
+    "relative_path": "goldbach\\raw-page-025.md",
+    "topic": "goldbach",
+    "filename": "raw-page-025.md",
+    "content": "# Page 25\n\nWHERE DOES IT COME FROM\nIn the past I talked a lot about the Huddleston levels, but\nwhere does it come from?\nUsing my favourite tool wordhippo, I looked for the\nfollowing 2 words:\nHuddles: https://www.wordhippo.com/what-is/another-\nword-for/huddles.html\n-> Clusters\nTon: https://www.wordhippo.com/what-is/another-word-for/\nton.html\n-> 100\nNow the length of name Michael is 7, and coincidently\nthere are also 7 archangels.\nWhen we do a bit of magic, the puzzle we\u2019re looking for",
+    "start_pos": 0,
+    "end_pos": 489
+  },
+  {
+    "chunk_id": "raw-page-025.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-025.md",
+    "relative_path": "goldbach\\raw-page-025.md",
+    "topic": "goldbach",
+    "filename": "raw-page-025.md",
+    "content": "e do a bit of magic, the puzzle we\u2019re looking for\ntranslates into:\n7 CLUSTERS OF 100\nThis leads us to goldbach clusters\nGoldbach's conjecture is one of the oldest and best-\nknown unsolved problems in number theory and all",
+    "start_pos": 439,
+    "end_pos": 939
+  },
+  {
+    "chunk_id": "raw-page-026.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-026.md",
+    "relative_path": "goldbach\\raw-page-026.md",
+    "topic": "goldbach",
+    "filename": "raw-page-026.md",
+    "content": "# Page 26\n\nof mathematics. It states that every even natural\nnumber greater than 2 is the sum of two prime numbers.2\nSo what does this mean exactly? Well we\u2019re looking for the\n7 clusters of the number 100.\nA cluster are 2 primes, when added them together we\nhave the number 100.\nThe number 100 is just the percentage of a range. A full\nrange is 100%, hence the number 100.\nWe can use a goldbach calculator to find all pairs for a\ngiven number for us.",
+    "start_pos": 0,
+    "end_pos": 451
+  },
+  {
+    "chunk_id": "raw-page-026.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-026.md",
+    "relative_path": "goldbach\\raw-page-026.md",
+    "topic": "goldbach",
+    "filename": "raw-page-026.md",
+    "content": "ator to find all pairs for a\ngiven number for us.\nAn even number can have more than 1 goldbach cluster,\nand from Michaels name we understand that we need to look\nfor 7 clusters.\n2 Source: wikipedia",
+    "start_pos": 401,
+    "end_pos": 901
+  },
+  {
+    "chunk_id": "raw-page-027.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-027.md",
+    "relative_path": "goldbach\\raw-page-027.md",
+    "topic": "goldbach",
+    "filename": "raw-page-027.md",
+    "content": "# Page 27\n\nBelow is a screenshot for all 2 primes that added together\nform the number 100",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-028.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-028.md",
+    "relative_path": "goldbach\\raw-page-028.md",
+    "topic": "goldbach",
+    "filename": "raw-page-028.md",
+    "content": "# Page 28\n\nCluster Discount Premium\n1 0 100\n2 3 97\n3 11 89\n4 17 83\n5 29 71\n6 41 59\n7 47 53\nYou can see the for each cluster, the discount number and\nthe premium number add up to the number 100.\nThese clusters also explain market symmetry. The low\nnumber together with the high number (for example 11 and\n89) are symmetrical opposed to each other.\nYou can identify a discount number, and a premium\nnumber, and map the prime numbers making up a goldbach",
+    "start_pos": 0,
+    "end_pos": 452
+  },
+  {
+    "chunk_id": "raw-page-028.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-028.md",
+    "relative_path": "goldbach\\raw-page-028.md",
+    "topic": "goldbach",
+    "filename": "raw-page-028.md",
+    "content": "r, and map the prime numbers making up a goldbach\ncluster towards the IPDA levels taught by ict, as seen in the\nnext part.\nYou will also see that most partitions are 6 apart from each\nother, where the 5th cluster will jump 12 steps at once, which\nis where the liquidity void will reside.\nSo now we already have number 3 for the power of three\nranges and make up our dealing ranges, and number 6 which\nseparates the goldbach clusters.",
+    "start_pos": 402,
+    "end_pos": 902
+  },
+  {
+    "chunk_id": "raw-page-029.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-029.md",
+    "relative_path": "goldbach\\raw-page-029.md",
+    "topic": "goldbach",
+    "filename": "raw-page-029.md",
+    "content": "# Page 29\n\nAll that\u2019s left to do is to define a fib tool but with the below\nprime numbers, defining the goldbach clusters.\nWe use this tool in the PO3 dealing range we defined in\nchapter 1.\nBelow you\u2019ll find a 81 PO3 dealing ranger the SP500, with\nthe IPDA/Huddleston/Goldbach levels added.",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-030.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-030.md",
+    "relative_path": "goldbach\\raw-page-030.md",
+    "topic": "goldbach",
+    "filename": "raw-page-030.md",
+    "content": "# Page 30\n\nIPDA = GOLDBACH\nGoldbach number IPDA level\n0 HIGH\n3 REJECTION BLOCK\n11 ORDER BLOCK\n17 FAIR VALUE GAP\n29 LIQUIDITY VOID\n41 BREAKER\n47 MITIGATION BLOCK\n53 MITIGATION BLOCK\n59 BREAKER\n71 LIQUIDITY VOID\n83 FAIR VALUE GAP\n89 ORDER BLOCK\n97 REJECTION BLOCK\n100 LOW\nWe now identified the IPDA levels, which are goldbach\nlevels we calculated for the number 100. The 7 pairs make up\nthe premium and discount levels.\nYou will also see that the levels are 6% apart from each",
+    "start_pos": 0,
+    "end_pos": 475
+  },
+  {
+    "chunk_id": "raw-page-030.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-030.md",
+    "relative_path": "goldbach\\raw-page-030.md",
+    "topic": "goldbach",
+    "filename": "raw-page-030.md",
+    "content": "l also see that the levels are 6% apart from each\nother, apart from the top and bottom.\nRejection block is only 3% apart from the high/low, and the\norder block is 8% apart from the rejection block onwards.",
+    "start_pos": 425,
+    "end_pos": 925
+  },
+  {
+    "chunk_id": "raw-page-031.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-031.md",
+    "relative_path": "goldbach\\raw-page-031.md",
+    "topic": "goldbach",
+    "filename": "raw-page-031.md",
+    "content": "# Page 31\n\nYou will also notice that the array where the liquidity void\nis (the 29/71 goldbach cluster), the levels are 12% apart.\nThis is the nature of a liquidity void, as this is where there\nis most of the time a large on direction move, which is what\nwe expect due to the 12%.\nTo map the levels to an ict concept, like rejection block,\norder block, we take the value of the level just below it until\nthe current value.\nSo for a rejection block, we take 0 -> 3 or 100 -> 97, for an",
+    "start_pos": 0,
+    "end_pos": 485
+  },
+  {
+    "chunk_id": "raw-page-031.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-031.md",
+    "relative_path": "goldbach\\raw-page-031.md",
+    "topic": "goldbach",
+    "filename": "raw-page-031.md",
+    "content": "ection block, we take 0 -> 3 or 100 -> 97, for an\norder block we take 97 -> 89 or 3 -> 11 and so on\nWhen we map the goldbach clusters to our PO3 dealing\nranges, we get the wireframe that makes up IPDA.",
+    "start_pos": 435,
+    "end_pos": 935
+  },
+  {
+    "chunk_id": "raw-page-032.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-032.md",
+    "relative_path": "goldbach\\raw-page-032.md",
+    "topic": "goldbach",
+    "filename": "raw-page-032.md",
+    "content": "# Page 32\n\nCONSEQUENT\nENCROACHMENT AND MEAN\nTHRESHOLD\nYou learned that goldbach levels are typically 6% apart\nfrom each other, but what about CE levels.\nWell, CE levels are just in the middle of 2 goldbach levels,\nso typically every 3% we have a consequent encroachment\nAbove you can find a screenshot of ict twitter where he\njust marked the CE level. This was exactly in the middle of a\nPO3 dealing range with goldbach levels.\nThe order block levels, which starts from the rejection",
+    "start_pos": 0,
+    "end_pos": 484
+  },
+  {
+    "chunk_id": "raw-page-032.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-032.md",
+    "relative_path": "goldbach\\raw-page-032.md",
+    "topic": "goldbach",
+    "filename": "raw-page-032.md",
+    "content": "der block levels, which starts from the rejection\nblock (3/97) towards the order block (11/89) is 8% in size.\nThe middle of 8% is 4%, hence he needed a different\nname for mean threshold.",
+    "start_pos": 434,
+    "end_pos": 934
+  },
+  {
+    "chunk_id": "raw-page-033.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-033.md",
+    "relative_path": "goldbach\\raw-page-033.md",
+    "topic": "goldbach",
+    "filename": "raw-page-033.md",
+    "content": "# Page 33\n\nWe can conclude:\nConsequent encroachment = the middle of a 6% block\nMean threshold = the middle of a 8% block\nYou will also see in the liquidity void levels, which are 12%,\nthat you can have non goldbach levels.\nThese are no real goldbach levels per se, as they are no\nprice numbers, but in my testing I find that the levels in\nbetween the FVG->LV and the LV->BR also have a hidden 6%\nlevel (and thus a CE level as well), so on my charts (when I",
+    "start_pos": 0,
+    "end_pos": 457
+  },
+  {
+    "chunk_id": "raw-page-033.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-033.md",
+    "relative_path": "goldbach\\raw-page-033.md",
+    "topic": "goldbach",
+    "filename": "raw-page-033.md",
+    "content": "thus a CE level as well), so on my charts (when I\nuse a large enough PO3 dealing range, so my screen is not\ncluttered with lines), I also draw following levels:\n35 and 65\n23 and 77\nAnd I call these the non gb levels.",
+    "start_pos": 407,
+    "end_pos": 907
+  },
+  {
+    "chunk_id": "raw-page-034.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-034.md",
+    "relative_path": "goldbach\\raw-page-034.md",
+    "topic": "goldbach",
+    "filename": "raw-page-034.md",
+    "content": "# Page 34\n\nEXTERNAL RANGE\nDEMARKERS\nWe defined dealing ranges using PO3 values. This defines\nour range, and this comes both with internal range, where we\nuse our goldbach IPDA levels, but there\u2019s also external range.\nExternal range is also defined by PO3 levels, and this is\nsomething we learned in the PO3 chapter, part about PO3\nstop runs.\nBasically what you do is add following fib values to your\nfibonacci tool:\nRange high: 1.111\nRange low: -0.111",
+    "start_pos": 0,
+    "end_pos": 452
+  },
+  {
+    "chunk_id": "raw-page-034.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-034.md",
+    "relative_path": "goldbach\\raw-page-034.md",
+    "topic": "goldbach",
+    "filename": "raw-page-034.md",
+    "content": "bonacci tool:\nRange high: 1.111\nRange low: -0.111\nUsing these fib values is putting a PO3 (-2) level on the\nchart.\nWhat this means is, it highlights stop runs of 2 lower PO3\nnumbers.\nFor example, if you\u2019re currently using a 2187 PO3 dealing\nrange, it will put a stop run level of 2 PO3 lower, which is not\n729, but 243.\nFor 243, it will be not 81, but 27, and so on.\nThis will give you an indication on where price will go to in\ncase it breaches the dealing range, for a brief moment of\ntime.",
+    "start_pos": 402,
+    "end_pos": 895
+  },
+  {
+    "chunk_id": "raw-page-034.md_chunk_2",
+    "file_path": "knowledge_base\\goldbach\\raw-page-034.md",
+    "relative_path": "goldbach\\raw-page-034.md",
+    "topic": "goldbach",
+    "filename": "raw-page-034.md",
+    "content": "es the dealing range, for a brief moment of\ntime.\nYou\u2019ll often see that a big move starts from an external\nrange remarker as well.",
+    "start_pos": 845,
+    "end_pos": 1345
+  },
+  {
+    "chunk_id": "raw-page-035.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-035.md",
+    "relative_path": "goldbach\\raw-page-035.md",
+    "topic": "goldbach",
+    "filename": "raw-page-035.md",
+    "content": "# Page 35\n\nAlso with ERD, you can cut the block in 2, so you have the\nmiddle of the ERD, which is also very sensitive.",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-036.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-036.md",
+    "relative_path": "goldbach\\raw-page-036.md",
+    "topic": "goldbach",
+    "filename": "raw-page-036.md",
+    "content": "# Page 36\n\nALGORITHMS\nSo if we are using a Tesla Vortex, but we base the calculation\nof our modular multiplication on the number we have here,\nwe can come up with the theory between the 2 also\u2019s ict\ndescribed.\nWe now understand the price action runs using PO3\nnumbers (the number 3), and goldbach levels.\nWe also identified the 14 different IPDA levels, which are\nthe pairs that make up the 7 goldbach clusters of the number\n100 (our full dealing range in percentages)",
+    "start_pos": 0,
+    "end_pos": 469
+  },
+  {
+    "chunk_id": "raw-page-036.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-036.md",
+    "relative_path": "goldbach\\raw-page-036.md",
+    "topic": "goldbach",
+    "filename": "raw-page-036.md",
+    "content": "umber\n100 (our full dealing range in percentages)\nSo we will feed this in our vortex calculator:\nModulus: 14\nMultiplier: 3",
+    "start_pos": 419,
+    "end_pos": 919
+  },
+  {
+    "chunk_id": "raw-page-037.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-037.md",
+    "relative_path": "goldbach\\raw-page-037.md",
+    "topic": "goldbach",
+    "filename": "raw-page-037.md",
+    "content": "# Page 37\n\nNow this is very interesting. We have 2 sets of data, one\nthat starts with the number 1, and another one that starts with\nthe number 2.\nAnd interesting, ict mentioned back in the old days that\nthere are 2 algorithms, one of which is the MMxM.\nMMxM: is either a Market Maker Buy Model or a Market\nMaker Sell Model",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-038.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-038.md",
+    "relative_path": "goldbach\\raw-page-038.md",
+    "topic": "goldbach",
+    "filename": "raw-page-038.md",
+    "content": "# Page 38\n\nSo we have 2 sets of data:\n1 3 9 13 11 5\n2 6 4 12 8 10\nIf we map this to our goldbach values we found, where 1 =\n0 = high, 2 = rejection block, 3 = order block, \u2026\nWe get following graph\nYou can see here that algo 1 is reflecting the MMxM, and\nalgo 2 is a trending algorithm, creating OTE (optimal trade\nentries) along the way up or down.",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-039.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-039.md",
+    "relative_path": "goldbach\\raw-page-039.md",
+    "topic": "goldbach",
+    "filename": "raw-page-039.md",
+    "content": "# Page 39\n\nWhen we put it in text, we get following flow\nALGO 1\nHIGH/LOW\nORDER BLOCK\nOPPOSITE BREAKER\nOPPOSITE REJECTION BLCOK\nOPPOSITE FAIR VALUE\nLIQUIDITY VOID\nALGO 2\nREJECTION BLOCK\nBREAKER\nFAIR VALUE\nOPPOSITE ORDER BLOCK\nOPPOSITE MITIGATION BLOCK\nOPPOSITE LIQUIDITY VOID",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-040.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-040.md",
+    "relative_path": "goldbach\\raw-page-040.md",
+    "topic": "goldbach",
+    "filename": "raw-page-040.md",
+    "content": "# Page 40\n\nNow we understand how we need to create the dealing\nranges (using the PO3 numbers), and we understand the\nlevels inside these dealing ranges (using goldbach), and we\nunderstand that price is offered by any of the 2 algorithms,\nwe can get to work.\nIn below screenshot, we identified for the EURUSD chart,\nthe current 729 PO3 partition.\nThis partition runs from 1.0206 towards 1.0935, or the 14th\n729 partition from base 0.0\n14*729=10206 (dealing range low)",
+    "start_pos": 0,
+    "end_pos": 467
+  },
+  {
+    "chunk_id": "raw-page-040.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-040.md",
+    "relative_path": "goldbach\\raw-page-040.md",
+    "topic": "goldbach",
+    "filename": "raw-page-040.md",
+    "content": "on from base 0.0\n14*729=10206 (dealing range low)\n10206 + 729 = 10935 (dealing range high)\n-> add decimal point for EURUSD\nWhen we put the range low and range high in our\ncalculator, and we specify this is a 729 range, we can\ncalculate the IPDA levels using the goldbach levels.\nUsing algo 2 for a bullish scenario, you can see that price\nis respecting the levels outlined by our algo.\nYou can see in the screenshot that an order block was",
+    "start_pos": 417,
+    "end_pos": 857
+  },
+  {
+    "chunk_id": "raw-page-040.md_chunk_2",
+    "file_path": "knowledge_base\\goldbach\\raw-page-040.md",
+    "relative_path": "goldbach\\raw-page-040.md",
+    "topic": "goldbach",
+    "filename": "raw-page-040.md",
+    "content": "can see in the screenshot that an order block was\ncreated, a fair value accompanied by it, price returned into\nthe OB+FVG, price expand away above equilibrium, price",
+    "start_pos": 807,
+    "end_pos": 1307
+  },
+  {
+    "chunk_id": "raw-page-041.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-041.md",
+    "relative_path": "goldbach\\raw-page-041.md",
+    "topic": "goldbach",
+    "filename": "raw-page-041.md",
+    "content": "# Page 41\n\nretraced back and was mitigated around equilibrium. We\nconsolidated a little while, and price was aggressively\nexpanded into the predefined level to form the high of the\nalgo, which is the premium fair value gap.\nTo get a cleaner chart, you can filter out all the goldbach\nlevels that are not needed for the flow of the specific\nalgorithm.\nWhile we\u2019re generally not calling tops and bottoms, using\nthe po3 dealing ranges, goldbach levels and the algorithm",
+    "start_pos": 0,
+    "end_pos": 467
+  },
+  {
+    "chunk_id": "raw-page-041.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-041.md",
+    "relative_path": "goldbach\\raw-page-041.md",
+    "topic": "goldbach",
+    "filename": "raw-page-041.md",
+    "content": "dealing ranges, goldbach levels and the algorithm\nflow, together with confluences of what you\u2019re about to learn\nwith the look back partitions, it might reaffirm a change in\ndirection",
+    "start_pos": 417,
+    "end_pos": 917
+  },
+  {
+    "chunk_id": "raw-page-042.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-042.md",
+    "relative_path": "goldbach\\raw-page-042.md",
+    "topic": "goldbach",
+    "filename": "raw-page-042.md",
+    "content": "# Page 42\n\nWHAT YOU LEARNED IN THIS CHAPTER\nTranslate the name Michael J Huddleston\nWhat are goldbach clusters\nHow to map the goldbach clusters to IPDA levels\nWhat is consequence encroachment and mean treshold\nand how do they relate to goldbach\nExternal range demarkers and where PO3 stop runs\ncome into play\nWhat are the 2 algorithms that are based on goldbach\nlevels",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-043.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-043.md",
+    "relative_path": "goldbach\\raw-page-043.md",
+    "topic": "goldbach",
+    "filename": "raw-page-043.md",
+    "content": "# Page 43\n\n3.\n20-40-60 LOOKBACK\n\u201cFROM THE CALM MORNING, THE END\nWILL COME WHEN OF THE DANCING\nHORSE THE NUMBER OF CIRCLES WILL\nBE NINE.\u201d\nNOSTRADAMUS",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-044.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-044.md",
+    "relative_path": "goldbach\\raw-page-044.md",
+    "topic": "goldbach",
+    "filename": "raw-page-044.md",
+    "content": "# Page 44\n\nINTRODUCTION\nThe 20-40-60 loopback is where the number 9 comes into\nplay.\nWe just use a sequence of the number 9 to define our\npartitions that make up the loopback anchor points, but we\nignore the first number 9.\nAs to why we ignore the first 9 (and another one later in\nthe sequence), this will become clear in a moment.\nThe sequence we will use is:\n18-27-36-45-54-63-72-81-99-108-117-126\nThis sequence is to be used on the daily chart, and\ndelineate the partitions.",
+    "start_pos": 0,
+    "end_pos": 479
+  },
+  {
+    "chunk_id": "raw-page-044.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-044.md",
+    "relative_path": "goldbach\\raw-page-044.md",
+    "topic": "goldbach",
+    "filename": "raw-page-044.md",
+    "content": "on the daily chart, and\ndelineate the partitions.\nW-e will break the numbers of the sequence in 2 parts:\nthe first digit in case the complete number < 100, else\nw-e take the first 2 digits. This will make up the month\nThe last digit. This will make up the day of that specific\nmonth\nWe will come up with following table\nNumber Month Day\n18 January 8\n27 February 7\n36 March 6\n45 April 5\n54 May 4\n63 June 3",
+    "start_pos": 429,
+    "end_pos": 929
+  },
+  {
+    "chunk_id": "raw-page-045.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-045.md",
+    "relative_path": "goldbach\\raw-page-045.md",
+    "topic": "goldbach",
+    "filename": "raw-page-045.md",
+    "content": "# Page 45\n\nNumber Month Day\n72 July 2\n81 August 1\n99 September 9\n108 October 8\n117 November 7\n126 December 6\nThe days of the specific month will make up our anchor\npoints, so it\u2019s best to open a daily chart, and draw 12 lines for\nthe year, given the specific day for the month.\nShould a day fall on a weekend, you use the following\ntrading day, typically Monday following the weekend.\nIf for example you need to draw the vertical line for May",
+    "start_pos": 0,
+    "end_pos": 443
+  },
+  {
+    "chunk_id": "raw-page-045.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-045.md",
+    "relative_path": "goldbach\\raw-page-045.md",
+    "topic": "goldbach",
+    "filename": "raw-page-045.md",
+    "content": "xample you need to draw the vertical line for May\nthe 4th, but this day falls on a Saturday, you would draw a\nvertical line for Monday the 6th for that specific year.\nYou\u2019ll now understand why we don\u2019t use the numbers 09\nand 90, as there is no Month 0 with a day 9, and there is no\nday 0 in the 9th month.\nNow we have defined the partitions, marking up the\nloopback periods, it\u2019s time to put them in action.\nAt the start of the new partition, we look for a clue based",
+    "start_pos": 393,
+    "end_pos": 861
+  },
+  {
+    "chunk_id": "raw-page-045.md_chunk_2",
+    "file_path": "knowledge_base\\goldbach\\raw-page-045.md",
+    "relative_path": "goldbach\\raw-page-045.md",
+    "topic": "goldbach",
+    "filename": "raw-page-045.md",
+    "content": "rt of the new partition, we look for a clue based\non the specific number of that partition.\nFor example, if we started the partition for the month of\nOctober, we will use the number 108.\nWith this number (108 in this case), we will look for a stop\nrun of 108 pips in any of the previous 3 partitions (the\n20-40-60 lookback).\nWhat is also possible is that you don\u2019t need to look for a\nstop run, but that you\u2019ll find a FVG of this amount of pips",
+    "start_pos": 811,
+    "end_pos": 1311
+  },
+  {
+    "chunk_id": "raw-page-046.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-046.md",
+    "relative_path": "goldbach\\raw-page-046.md",
+    "topic": "goldbach",
+    "filename": "raw-page-046.md",
+    "content": "# Page 46\n\nThe last possibility is that there\u2019s an order block in close\nproximity, with this size (108 for October).\nAt the start of the new partition, you typically look for the\nfirst few trading days of the new partition to hit either the\nliquidity, the fair value gap or the order block.\nWe expect price to aggressively trade away (reverse) from\nthis point, and we expect a PO3 stop run on the opposite\ndirection.\nThis PO3 stop run can be either a real liquidity stop run, or",
+    "start_pos": 0,
+    "end_pos": 479
+  },
+  {
+    "chunk_id": "raw-page-046.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-046.md",
+    "relative_path": "goldbach\\raw-page-046.md",
+    "topic": "goldbach",
+    "filename": "raw-page-046.md",
+    "content": "p run can be either a real liquidity stop run, or\nwhen you see a PO3 size wick, it\u2019s possible this wick is used\nas a target.\nWhen the PO3 stop run occurred, you\u2019ll typically see that\nprice goes back into the trading range defined for the current\npartition.",
+    "start_pos": 429,
+    "end_pos": 929
+  },
+  {
+    "chunk_id": "raw-page-047.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-047.md",
+    "relative_path": "goldbach\\raw-page-047.md",
+    "topic": "goldbach",
+    "filename": "raw-page-047.md",
+    "content": "# Page 47\n\nEXAMPLES\nAll examples are for the year 2022",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-048.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-048.md",
+    "relative_path": "goldbach\\raw-page-048.md",
+    "topic": "goldbach",
+    "filename": "raw-page-048.md",
+    "content": "# Page 48\n\nHIPPO\nYou\u2019ll find references to HIPPO in the following examples.\nThis is an \u201cinvention\u201d of me, to demonstrate that if you\nunderstand the price levels (huddleston/goldbach), you can\ncreate any trading system around it, give a concept a name of\nyour liking.\nThat\u2019s why I came up with the HIPPO:\nH: HIDDEN\nI : INTERBANK\nP: PRICE\nP: POINT\nO: OBJECTIVE\nBasically, a HIPPO is a \u201chidden\u201d order block, where you\ntake the wicks of 2 consecutive bars.",
+    "start_pos": 0,
+    "end_pos": 453
+  },
+  {
+    "chunk_id": "raw-page-048.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-048.md",
+    "relative_path": "goldbach\\raw-page-048.md",
+    "topic": "goldbach",
+    "filename": "raw-page-048.md",
+    "content": ", where you\ntake the wicks of 2 consecutive bars.\nYou do not take any 2 bars, but the bars should create a\nfair value gap.",
+    "start_pos": 403,
+    "end_pos": 903
+  },
+  {
+    "chunk_id": "raw-page-049.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-049.md",
+    "relative_path": "goldbach\\raw-page-049.md",
+    "topic": "goldbach",
+    "filename": "raw-page-049.md",
+    "content": "# Page 49\n\nAbove you can see 2 green candles. The second candle\ndidn\u2019t fill in the first gap, and the next candle (the red\nindecision candle) also formed a gap.\nWhen we attach the top of the wick of the first candle to\nthe bottom of the wick of the second candle, you can see a\n\u201chidden\u201d order block forming.\nYou can also see that this HIPPO offered support later on\n(and also closed the top FVG.",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-050.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-050.md",
+    "relative_path": "goldbach\\raw-page-050.md",
+    "topic": "goldbach",
+    "filename": "raw-page-050.md",
+    "content": "# Page 50\n\nJANUARY\n1 8\nIn January, which is the first month of the year, we should\nstart at the 8th.\nThis is however a weekend day, so we will take the first\nMonday following this day, so we arrive at January the 10th.\nWe are still looking for either gaps or stop runs of 18 pips\njust when the new partition starts.\n4 trading days into the new partition, we can see a 18 pip\ngap residing 2 partitions ago (40 day lookback)\nWhen we hit this level, price breaks down, and it does a 81",
+    "start_pos": 0,
+    "end_pos": 483
+  },
+  {
+    "chunk_id": "raw-page-050.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-050.md",
+    "relative_path": "goldbach\\raw-page-050.md",
+    "topic": "goldbach",
+    "filename": "raw-page-050.md",
+    "content": "t this level, price breaks down, and it does a 81\nPO3 stop run, triggering the reversal in price.",
+    "start_pos": 433,
+    "end_pos": 933
+  },
+  {
+    "chunk_id": "raw-page-051.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-051.md",
+    "relative_path": "goldbach\\raw-page-051.md",
+    "topic": "goldbach",
+    "filename": "raw-page-051.md",
+    "content": "# Page 51\n\nFEBRUARY\n2 7\nFebruary, the second month of the year, we will start at the\n7th.\nWe are looking for a 27 pip stop run or a gap.\nOn the 4th trading day, we see we hit the 27 pip stop run\nof the previous partition.\nPrice breaks down, and does a 243 PO3 stop run, closing\nthe current partition, and be ready for the March partition.",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-052.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-052.md",
+    "relative_path": "goldbach\\raw-page-052.md",
+    "topic": "goldbach",
+    "filename": "raw-page-052.md",
+    "content": "# Page 52\n\nMARCH\n3 6\nMarch, the 3rd month of the year, we look to start at the 6th.\nImmediately out of the gate, we took out the previous\npartitions low with 36 pips.\nThe draw on liquidity was the bearish order block, but\nbefore we reached there, we first left a 36 pip gap.\nThe order block was later traded to just before the\npartition closed.",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-053.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-053.md",
+    "relative_path": "goldbach\\raw-page-053.md",
+    "topic": "goldbach",
+    "filename": "raw-page-053.md",
+    "content": "# Page 53\n\nAPRIL\n4 5\nIn the 4th month, we are looking for 45 pips, starting at the\n5th of the month.\nPrice left at the start of the partition, creating a 45 pip gap,\nwhich was tested multiple times.\nShould you have look for a 45 pip sell side stop run, you\ncould see a nice +100pip reaction from it, but ultimately it\nfailed.\nAfter the failed swing, you can witness a 243 PO3 stop\nrun.",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-054.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-054.md",
+    "relative_path": "goldbach\\raw-page-054.md",
+    "topic": "goldbach",
+    "filename": "raw-page-054.md",
+    "content": "# Page 54\n\nMAY\n5 4\nMay, the 5th month where we look for 54 pip stop runs or\ngaps, is interesting.\nWe can see a nice gap of 54 pips but what\u2019s interesting is\nthere is a HIPPO to it, which is used as the reaction point.\nYou can also witness the 54 pip gap below the HIPPO, so\nthe HIPPO is made out of 2 54 pip gaps.\nWhen the HIPPO triggered the sell off, we did a 81 PO3\nstop run, where price reversed and headed to another 54 pip\ngap in the previous partition.",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-055.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-055.md",
+    "relative_path": "goldbach\\raw-page-055.md",
+    "topic": "goldbach",
+    "filename": "raw-page-055.md",
+    "content": "# Page 55\n\nJUN\n6 3\nHere, on the 6th month, price traded into a 63 pip order block\ncreated in the previous partition.\nThe rejection block was used to drive price down,\nShould you not see this order block, and were looking for\nthe 63 pip sell side stop run, you will have a failed swing (and\npotential loss).\nPrice sold off into a PO3 rejection block (the wicks are 27\nPO3 number), and price reversed.\nIt reversed into the HIPPO which was created at the top of\nthe failed 63 swing.",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-056.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-056.md",
+    "relative_path": "goldbach\\raw-page-056.md",
+    "topic": "goldbach",
+    "filename": "raw-page-056.md",
+    "content": "# Page 56\n\nJUL\n7 2\nThe partition for the 7th month should start on the 2nd, but as\nthis was a weekend, we use the following trading day, which\nwas Monday 4th 2022.\nIf you missed to see the 72 pip order block which was\ncreated at the end of the previous partition, you will face a\nloss when the 72 stop run block was ran through.\nA HIPPO was created at the bottom of the 72 pip stop run,\nand we saw a 243 PO3 stop run straight from the HIPPO.\nPrice ran back into the HIPPO after the 243 PO3 stop run",
+    "start_pos": 0,
+    "end_pos": 499
+  },
+  {
+    "chunk_id": "raw-page-056.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-056.md",
+    "relative_path": "goldbach\\raw-page-056.md",
+    "topic": "goldbach",
+    "filename": "raw-page-056.md",
+    "content": "an back into the HIPPO after the 243 PO3 stop run\non the sell side occurred.",
+    "start_pos": 449,
+    "end_pos": 949
+  },
+  {
+    "chunk_id": "raw-page-057.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-057.md",
+    "relative_path": "goldbach\\raw-page-057.md",
+    "topic": "goldbach",
+    "filename": "raw-page-057.md",
+    "content": "# Page 57\n\nAUG\n8 1\nAugust, the 8th month was a beautiful setup.\nWe did the 81 pip stop run of the buy side liquidity of a\nswing created in the previous partition.\nPrice sold off, and we did a 81 PO3 stop run of the sell side\nliquidity of the previous partition.",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-058.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-058.md",
+    "relative_path": "goldbach\\raw-page-058.md",
+    "topic": "goldbach",
+    "filename": "raw-page-058.md",
+    "content": "# Page 58\n\nSEP\n9 0 - 9 9\nNow, the 9th month is something special. We should take day\n0, but obviously there is no day 0, so we add 9 again, and\narrive at 99.\nHere we saw a nice 99 pip stop run of a swing created in\nthe previous partition, and price sold off.\nBy now, you know the drill. You look for a PO3 stop run,\nwhich came in as a 243 PO3 stop run.\nPrice returned back into a bearish order block.",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-059.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-059.md",
+    "relative_path": "goldbach\\raw-page-059.md",
+    "topic": "goldbach",
+    "filename": "raw-page-059.md",
+    "content": "# Page 59\n\nOCT\n10 8\nOctober, the 10th month we are looking for a 108 clue.\nThis one is a bit special, because we used a redelivered\nrebalance gap.\nPrice was offered to the buy side, and we did a 81 PO3\nstop run.\nPrice went back to the top of the 108 block.",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-060.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-060.md",
+    "relative_path": "goldbach\\raw-page-060.md",
+    "topic": "goldbach",
+    "filename": "raw-page-060.md",
+    "content": "# Page 60\n\nNOV\n11 7\nHere, on the 11th month we used a 117 pip gap.\nYou could see price do an impulsive move just before we\nstart November\u2019s partition, creating the gap.\nWe just fell short of a 243 PO3 stop run of the 60 day\nloopback ( 3 partitions ago ).",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-061.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-061.md",
+    "relative_path": "goldbach\\raw-page-061.md",
+    "topic": "goldbach",
+    "filename": "raw-page-061.md",
+    "content": "# Page 61\n\nDEC\n12 6\nThe last month of the year is a bit special, as this is a\nconsolidation profile most of the time.\nWe could see a nice 126 pip stop run on the highs of the\nprevious partition (20 day lookback).\nThe PO3 stop run was under the current partition low,\nwhich is a hallmark for the consolidation profile.\nAlso note that the partition for December runs into the first\ntrading days of the next year.",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-062.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-062.md",
+    "relative_path": "goldbach\\raw-page-062.md",
+    "topic": "goldbach",
+    "filename": "raw-page-062.md",
+    "content": "# Page 62\n\nWHAT YOU LEARNED IN THIS CHAPTER\nWhat is a HIPPO\nHow to define the look back partitions using the\nnumber 9\nMap the look back partitions to the correct days and\nmonths\nHow to look for clues that triggers range expansion\nusing the number 9, from the start of a new look back\npartitions\nHow to anticipate reversals using PO3 stop runs",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-063.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-063.md",
+    "relative_path": "goldbach\\raw-page-063.md",
+    "topic": "goldbach",
+    "filename": "raw-page-063.md",
+    "content": "# Page 63\n\n4.\nLOGO\nEverybody is looking at the logo as a small circle\naccompanied by a large circle.\nBut this is the sleight of hand of ict, it\u2019s to mislead you.\nWhat you are really looking for, is a small circle with a\nbigger circle to the left and right of it.\nThis represent your Accumulation, Manipulation and\nDistribution cycle",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-064.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-064.md",
+    "relative_path": "goldbach\\raw-page-064.md",
+    "topic": "goldbach",
+    "filename": "raw-page-064.md",
+    "content": "# Page 64\n\nWhen we take our beloved PO3 numbers, and consider 1\ntrading year, we exactly end up with what ict always hinted:\nNow, when you look closely, you can see that each circle\nis made up out of 3 other circles.\nSo each of the 3 circles which make up the AMD phase,\nhas their own AMD cycle in it.",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-065.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-065.md",
+    "relative_path": "goldbach\\raw-page-065.md",
+    "topic": "goldbach",
+    "filename": "raw-page-065.md",
+    "content": "# Page 65\n\nWe can do the same like we did above to layout the yearly\nexpectations, but now for a given day.\nWe are using the CLS timings for this, so a true day goes\nfrom 20:00-20:00 CET, which is 19:00-19:00 BST or\n14:00-14:00 EST\nYou can see there that we have a accumulation phase\nduring the Asian session, the London session breaks out of\nthe Asian consolidation and retraces back into the\nconsolidation during the manipulation phase (and forms the",
+    "start_pos": 0,
+    "end_pos": 453
+  },
+  {
+    "chunk_id": "raw-page-065.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-065.md",
+    "relative_path": "goldbach\\raw-page-065.md",
+    "topic": "goldbach",
+    "filename": "raw-page-065.md",
+    "content": "tion during the manipulation phase (and forms the\nJudas), and price is being distributed during New York.",
+    "start_pos": 403,
+    "end_pos": 903
+  },
+  {
+    "chunk_id": "raw-page-066.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-066.md",
+    "relative_path": "goldbach\\raw-page-066.md",
+    "topic": "goldbach",
+    "filename": "raw-page-066.md",
+    "content": "# Page 66\n\nThe main manipulation session matches the London\nOpen session, and runs from 05:00 CET - 11:00 CET, which is\n23:00 EST-05:00 EST.\nYou will notice this is a 6 hour window.\nThe asian session and the New York session are the\naccumulation phase and distribution phase respectively, and\nare 9 hours long, again a reference to the 3 (sessions) and 6\nand 9 (hours).",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-067.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-067.md",
+    "relative_path": "goldbach\\raw-page-067.md",
+    "topic": "goldbach",
+    "filename": "raw-page-067.md",
+    "content": "# Page 67\n\nNow, I told you that we can break each phase into smaller\nAMD phases, as price is fractal.\nSo if we look for instance at the manipulation phase of the\nabove screenshot, we can fine tune it using the smaller AMD\ncycle\nYou can see the accumulation phase, this is violated\n(market structure shift) and retraced back into (to form an\nOTE).\nAfter the retracement into the consolidation of the\naccumulation phase, we expand into a pool of interest\n(liquidity, fvg, \u2026)",
+    "start_pos": 0,
+    "end_pos": 473
+  },
+  {
+    "chunk_id": "raw-page-067.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-067.md",
+    "relative_path": "goldbach\\raw-page-067.md",
+    "topic": "goldbach",
+    "filename": "raw-page-067.md",
+    "content": "xpand into a pool of interest\n(liquidity, fvg, \u2026)\nAt this moment, we will reverse price. You will see that the\nreversal will typically be in the middle of the distribution cycle.",
+    "start_pos": 423,
+    "end_pos": 923
+  },
+  {
+    "chunk_id": "raw-page-068.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-068.md",
+    "relative_path": "goldbach\\raw-page-068.md",
+    "topic": "goldbach",
+    "filename": "raw-page-068.md",
+    "content": "# Page 68\n\nIf you now think, this looks pretty familiar but I can\u2019t put the\nfinger on it:\nT-he sweet spots for the manipulation phase are:\n- London: 07:30-08:30 CET or 01:30-02:30 EST\nNew York: 14:30-16:30 CET or 08:30-12:30 EST",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-069.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-069.md",
+    "relative_path": "goldbach\\raw-page-069.md",
+    "topic": "goldbach",
+    "filename": "raw-page-069.md",
+    "content": "# Page 69\n\nWHAT YOU LEARNED IN THIS CHAPTER\nHow to really interpret the circles in the logo\nMap the circles to the Accumulation, manipulation,\ndistribution phases\nHow the AMD cycles are fractal\nHow to lay out the yearly AMD cycle\nHow to use the Logo and AMD cycles for a given day,\nusing CLS timings\nMap the AMD cycle to market maker models",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-070.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-070.md",
+    "relative_path": "goldbach\\raw-page-070.md",
+    "topic": "goldbach",
+    "filename": "raw-page-070.md",
+    "content": "# Page 70\n\nACRONYMS\nTerm Explanation\nICT Innercircletrader\nAMD Accumulation, manipulation,\ndistribution\nPO3 Power of three\nHIPPO Hidden interbank price point\nobjective\nOTE Optimal trade entry",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-071.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-071.md",
+    "relative_path": "goldbach\\raw-page-071.md",
+    "topic": "goldbach",
+    "filename": "raw-page-071.md",
+    "content": "# Page 71\n\nIN CLOSURE\nMONEY IS NUMBERS AND NUMBERS\nNEVER END. IF IT TAKES MONEY TO BE\nHAPPY, YOUR SEARCH FOR HAPPINESS\nWILL NEVER END.\nBOB MARLEY",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "raw-page-072.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-072.md",
+    "relative_path": "goldbach\\raw-page-072.md",
+    "topic": "goldbach",
+    "filename": "raw-page-072.md",
+    "content": "# Page 72\n\nEver since the gauntlet thread and the CLS thread on the\ninnercircletrader mentorship, I said the mentorship was setup\nas a big puzzle that is for us to crack.\nI hope that at least I shed some light on some of the\npuzzles that were hidden in the mentorship.\nBy no means I claim to have cracked \u201cenigma\u201d but I hope\nwhat was shared in this book is helpful to you in becoming\nthe trader you want to become.\nThe book will be updated whenever I discover more",
+    "start_pos": 0,
+    "end_pos": 465
+  },
+  {
+    "chunk_id": "raw-page-072.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-072.md",
+    "relative_path": "goldbach\\raw-page-072.md",
+    "topic": "goldbach",
+    "filename": "raw-page-072.md",
+    "content": "The book will be updated whenever I discover more\ninteresting topics, or relations with teachings ict shared.\nThanks for reading!\nHOPIPLAKA",
+    "start_pos": 415,
+    "end_pos": 915
+  },
+  {
+    "chunk_id": "raw-page-073.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-073.md",
+    "relative_path": "goldbach\\raw-page-073.md",
+    "topic": "goldbach",
+    "filename": "raw-page-073.md",
+    "content": "# Page 73\n\nFRAUDULENT COPIES\nWhile I understand that this book will be copied and\ndistributed over the internet, there are a few reasons not to\ndo this.\nShould you have obtained an illegal copy, understand that\nwhen you buy this book from our official channel , this will\ncome with a number of benefits:\n-\nthis book evolves continuously, as a registered buyer\nyou will receive new versions free of charge, accessible in\nt-he discord server\nYou will be invited to our discord server, where we do",
+    "start_pos": 0,
+    "end_pos": 495
+  },
+  {
+    "chunk_id": "raw-page-073.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-073.md",
+    "relative_path": "goldbach\\raw-page-073.md",
+    "topic": "goldbach",
+    "filename": "raw-page-073.md",
+    "content": "ill be invited to our discord server, where we do\nin-depth discussions, answer questions, have access to\na-dditional resources, \u2026\nYou are eligible to request an affiliate link. In order to do\nthis, send an email to affiliate@hopiplaka.com with the\nemail address you\u2019ve used to purchase the book.\nWhen you successfully market 5 books, you have your\no-riginal investment back\nAnd much more\u2026\nVersion 1.0 - January 2023",
+    "start_pos": 445,
+    "end_pos": 945
+  },
+  {
+    "chunk_id": "raw-page-074.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\raw-page-074.md",
+    "relative_path": "goldbach\\raw-page-074.md",
+    "topic": "goldbach",
+    "filename": "raw-page-074.md",
+    "content": "# Page 74\n\nDISCLAIMER\nThis book is not trade advice. Trading in a live account is\nstill the responsibility of the buyer of this book.\nWe do not offer trade signals, trade copying, not in this\nbook, not in the discord group\nBuying this book is a one time payment. We will not sell\nrecurring payments for a \u201cmentorship\u201d, and this is not an\nupsell to \u201cadvanced\u201d knowledge.\nEvery person who bought this book will get the same\ntreatment and information.",
+    "start_pos": 0,
+    "end_pos": 449
+  },
+  {
+    "chunk_id": "raw-page-074.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\raw-page-074.md",
+    "relative_path": "goldbach\\raw-page-074.md",
+    "topic": "goldbach",
+    "filename": "raw-page-074.md",
+    "content": "book will get the same\ntreatment and information.\nAll information in this book is hopiplaka\u2019s interpretation of\nthe teachings by Michael J Huddleston.\nBy no means we guarantee this book is \u201cthe truth\u201d, \u201cenigma\u201d,\n\u201chow financial markets operate\u201d, \u2026\nAll references made to order blocks, fair value gaps,\nbreakers, mitigation blocks, \u2026 are property of the\ninnercircletrader, for detailed information you should visit\ninnercircletrder twitter and YouTube channels.\nCOPYRIGHT - HOPIPLAKA - 2012-2023",
+    "start_pos": 399,
+    "end_pos": 899
+  },
+  {
+    "chunk_id": "README.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\README.md",
+    "relative_path": "goldbach\\README.md",
+    "topic": "goldbach",
+    "filename": "README.md",
+    "content": "Goldbach notes and ingestion\n\nThis folder is for notes extracted from `Goldbach/goldbach.pdf` and other Goldbach-related documentation.\n\nCurrent contents:\n\n- `goldbach_summary.md` \u2014 auto-generated placeholder; run `tools/ingest_goldbach_pdf.py` to populate with extracted text and a short summary.\n\nIngestion guidance\n\n- The ingestion script will attempt multiple PDF extraction methods and create a set of Markdown files with extracted text, a short automated summary, and a small \"Key terms\" list.",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "README.md_chunk_1",
+    "file_path": "knowledge_base\\goldbach\\README.md",
+    "relative_path": "goldbach\\README.md",
+    "topic": "goldbach",
+    "filename": "README.md",
+    "content": "automated summary, and a small \"Key terms\" list.\n- After ingestion, review and edit the generated Markdown to add authoritative commentary and remove OCR noise.",
+    "start_pos": 450,
+    "end_pos": 950
+  },
+  {
+    "chunk_id": "README_AUTOGEN.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\README_AUTOGEN.md",
+    "relative_path": "goldbach\\README_AUTOGEN.md",
+    "topic": "goldbach",
+    "filename": "README_AUTOGEN.md",
+    "content": "This folder was populated by tools/ingest_goldbach_pdf.py. Review and edit generated files for accuracy.",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "summary.md_chunk_0",
+    "file_path": "knowledge_base\\goldbach\\summary.md",
+    "relative_path": "goldbach\\summary.md",
+    "topic": "goldbach",
+    "filename": "summary.md",
+    "content": "# Automated summary\n\nDEMYSTIFYING ICT:\n\nWHAT EVERY\n\nICT TRADER\u2026\n\nSTILL WANTS\n\nTO KNOW\n\nBY HOPIPLAKA\n\n0.\n\nPROLOGUE",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "README.md_chunk_0",
+    "file_path": "knowledge_base\\market_sentiment\\README.md",
+    "relative_path": "market_sentiment\\README.md",
+    "topic": "market_sentiment",
+    "filename": "README.md",
+    "content": "# Market sentiment \u2014 seed notes\n\nThis folder collects sentiment signals, data sources, and interpretation guidance.\n\nStarter sources:\n\n- Reuters/WSJ/Twitter threads (cite article + date)\n- On-chain metrics (Glassnode, CryptoQuant) for crypto sentiment\n- Options market indicators: put/call ratio, skew, IV term structure\n\nStore short write-ups and links to datasets; include tags like `news`, `options`, `onchain`, `retail`.",
+    "start_pos": 0,
+    "end_pos": 500
+  },
+  {
+    "chunk_id": "README.md_chunk_0",
+    "file_path": "knowledge_base\\us_economics\\README.md",
+    "relative_path": "us_economics\\README.md",
+    "topic": "us_economics",
+    "filename": "README.md",
+    "content": "# US economics & policy \u2014 seed notes\n\nThis folder will hold notes on US macro indicators, Fed policy, fiscal spending, labor market, and inflation dynamics.\n\nStarter sources:\n\n- Federal Reserve FOMC statements: [Fed monetary policy](https://www.federalreserve.gov/monetarypolicy.htm)\n- Bureau of Labor Statistics (BLS): [BLS](https://www.bls.gov/)\n- Bureau of Economic Analysis (BEA): [BEA](https://www.bea.gov/)",
+    "start_pos": 0,
+    "end_pos": 415
+  },
+  {
+    "chunk_id": "README.md_chunk_1",
+    "file_path": "knowledge_base\\us_economics\\README.md",
+    "relative_path": "us_economics\\README.md",
+    "topic": "us_economics",
+    "filename": "README.md",
+    "content": "omic Analysis (BEA): [BEA](https://www.bea.gov/)\n\nAdd short summaries with \"Key takeaways\" and link to original source and page/section when applicable.",
+    "start_pos": 365,
+    "end_pos": 865
+  }
+]

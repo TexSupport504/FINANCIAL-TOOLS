@@ -1,0 +1,1 @@
+This folder was populated by tools/ingest_goldbach_pdf.py. Review and edit generated files for accuracy.

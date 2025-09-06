@@ -1,0 +1,17 @@
+# Automated summary
+
+DEMYSTIFYING ICT:
+
+WHAT EVERY
+
+ICT TRADER…
+
+STILL WANTS
+
+TO KNOW
+
+BY HOPIPLAKA
+
+0.
+
+PROLOGUE

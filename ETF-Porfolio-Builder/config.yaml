@@ -1,0 +1,36 @@
+# Configuration for Round Hill ETF Portfolio Builder
+api_keys:
+  alpha_vantage: "YOUR_ALPHA_VANTAGE_API_KEY"
+  fred: "YOUR_FRED_API_KEY" 
+  
+investment:
+  capital: 16500
+  strategy: "aggressive"
+  reinvest_dividends: true
+  time_horizon_months: 12
+  
+portfolio:
+  target_etfs: 
+    - "WKLY"  # Round Hill Weekly Dividend ETF
+    - "DFND"  # Round Hill Dividend Defender ETF
+  
+analysis:
+  lookback_period_months: 24
+  monte_carlo_simulations: 10000
+  confidence_intervals: [0.05, 0.95]
+  rebalance_frequency: "monthly"
+  
+risk:
+  max_single_position: 0.30  # 30% max in any single ETF
+  min_position_size: 0.05    # 5% minimum position
+  risk_free_rate: 0.0525     # Current risk-free rate assumption
+  
+data_sources:
+  primary: "yfinance"
+  backup: "alpha_vantage"
+  economic_data: "fred"
+  
+output:
+  save_results: true
+  generate_charts: true
+  dashboard: true

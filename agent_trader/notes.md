@@ -1,0 +1,1 @@
+Notes: This template intentionally keeps dependencies minimal. Replace `load_dummy_price_series` with real data loaders (yfinance, exchange APIs) and extend the Agent to support risk sizing, position sizing, and portfolio accounting.

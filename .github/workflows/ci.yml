@@ -37,7 +37,12 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          # Prefer a trimmed CI-only requirements file to avoid heavy ML/CUDA packages in CI
+          if [ -f requirements-ci.txt ]; then
+            pip install -r requirements-ci.txt
+          elif [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
 
       - name: Run tests
         run: |

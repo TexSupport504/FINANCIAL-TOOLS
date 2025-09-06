@@ -5,6 +5,7 @@ relevant modules aren't importable in the test environment.
 """
 import pytest
 import sys
+import os
 from pathlib import Path
 
 # Ensure project root is on sys.path when running locally
@@ -26,6 +27,9 @@ def test_imports_available():
 
 def test_strategy_initialization_has_expected_attrs():
     """Instantiate the strategy and check a few expected attributes."""
+    if not os.environ.get("POLYGON_API_KEY"):
+        pytest.skip("POLYGON_API_KEY not set; skipping strategy initialization test")
+
     try:
         from agent_trader.strategies.polygon.momentum_strategy import PolygonMomentumStrategy
     except Exception as exc:  # pragma: no cover - environment dependent
@@ -43,6 +47,9 @@ def test_polygon_adapter_can_construct():
     Adapter may require environment variables for API keys for full calls; we
     only assert construction here to keep CI stable.
     """
+    if not os.environ.get("POLYGON_API_KEY"):
+        pytest.skip("POLYGON_API_KEY not set; skipping adapter construction test")
+
     try:
         from agent_trader.data_sources.polygon_adapter import PolygonDataAdapter
     except Exception as exc:  # pragma: no cover - environment dependent

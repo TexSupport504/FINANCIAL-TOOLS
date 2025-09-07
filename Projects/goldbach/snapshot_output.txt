@@ -1,0 +1,10 @@
+ts: 2025-09-06 14:15:00+00:00
+close: 4300.59
+phase: Unknown/Transition
+trend: bear
+momentum: oversold
+volatility: unknown
+phase_score: 0
+confidence: nan
+entry_suggestion: Pullback to EMA13 or mid-BB
+stop_suggestion: None

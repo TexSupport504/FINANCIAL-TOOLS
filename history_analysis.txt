@@ -5,10 +5,10 @@ ticker  total_quantity  total_cost  trades  avg_cost
 
 Market snapshot:
 ticker  total_quantity  avg_cost  market_price  market_value  unrealized_pnl  unrealized_pct
-  JEPQ             4.0 55.915000     56.080002    224.320007        0.660007        0.295094
-  ULTY          2921.0  6.010749      5.545800  16199.282411    -1358.114189       -7.735282
+  JEPQ             4.0 55.915000     56.030102    224.120407        0.460407        0.205851
+  ULTY          2921.0  6.010749      5.535000  16167.734554    -1389.662046       -7.914966
 
 Portfolio summary:
 Total cost basis: $17,781.06
-Total market value: $16,423.60
-Total unrealized P&L: $-1,357.45 (-7.63%)
+Total market value: $16,391.85
+Total unrealized P&L: $-1,389.20 (-7.81%)
